@@ -6,7 +6,8 @@
     "extends": [
         "eslint:recommended",
         "prettier",
-        "plugin:react/jsx-runtime"
+        "plugin:react/jsx-runtime",
+        "plugin:react/recommended"
     ],
     "overrides": [
     ],
