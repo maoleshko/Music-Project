@@ -1,11 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import ReactDOM from 'react-dom';
-// eslint-disable-next-line no-unused-vars
-import App from './App';
+import Сenterblock from './App';
+import Nav from './main-nav';
+import Sidebar from './sidebar';
 
 ReactDOM.render(
-  <App />,
+  <Сenterblock />,
+  <Nav />,
+  <Sidebar />,
 
   document.getElementById('root'),
 );

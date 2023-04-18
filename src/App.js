@@ -2,28 +2,10 @@
 import React from 'react';
 
 
-function App() {
+function Сenterblock() {
   return (
     <div className="App">
       <div className='main'>
-      <nav class="main__nav nav">
-                    <div class="nav__logo logo">
-                        {/* <img class="logo__image" src="img/logo.png" alt="logo"> */}
-                    </div>
-                    <div class="nav__burger burger">
-                        <span class="burger__line"></span>
-                        <span class="burger__line"></span>
-                        <span class="burger__line"></span>
-                    </div>
-                    <div class="nav__menu menu">
-                        <ul class="menu__list">
-                            <li class="menu__item"><a href="http://" class="menu__link">Главное</a></li>
-                            <li class="menu__item"><a href="http://" class="menu__link">Мой плейлист</a></li>
-                            <li class="menu__item"><a href="http://" class="menu__link">Войти</a></li>
-                        </ul>
-                    </div>
-                </nav>
-
       <div class="main__centerblock centerblock">
                     <div class="centerblock__search search">
                         {/* <svg class="search__svg">
@@ -349,33 +331,7 @@ function App() {
                         </div>                        
                     </div>
                 </div>
-                <div class="main__sidebar sidebar">
-                    <div class="sidebar__personal">
-                        <p class="sidebar__personal-name">Sergey.Ivanov</p>
-                        <div class="sidebar__avatar">
-                            
-                        </div>
-                    </div>
-                    <div class="sidebar__block">
-                        <div class="sidebar__list">
-                            <div class="sidebar__item">
-                                <a class="sidebar__link" href="#">
-                                    {/* <img class="sidebar__img" src="img/playlist01.png" alt="day's playlist"> */}
-                                </a>
-                            </div>
-                            <div class="sidebar__item">
-                                <a class="sidebar__link" href="#">
-                                    {/* <img class="sidebar__img" src="img/playlist02.png" alt="day's playlist"> */}
-                                </a>
-                            </div>
-                            <div class="sidebar__item">
-                                <a class="sidebar__link" href="#">
-                                    {/* <img class="sidebar__img" src="img/playlist03.png" alt="day's playlist"> */}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
       <div className = "bar">
       <div class="bar__content">
