@@ -56,7 +56,12 @@ nav {
 }
 
 main {
+    display: flex;
     padding: 50px;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 125px;
 }
 
 
@@ -100,4 +105,3 @@ main {
     flex-direction: row;
     gap: 20px;
 }
-

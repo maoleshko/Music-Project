@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './style/App.css';
 import PlaylistItem from "./components/Playlist/PlaylistItem";
 import Search from './components/Search/search';
-import Sidebar from './components/Sidebar'
+import Sidebar from './components/Sidebar/Sidebar'
 
 import Menu from './components/burgerMenu/Menu';
 import MainCenterblock from './components/centerblock/MainCenterblock';
@@ -19,9 +19,9 @@ function App() {
         <Search/>
       </nav>
       <main>
+        
         <div className='main__centerblock'>
         <MainCenterblock/>
-        <Sidebar/>
           <div className='Playlist'>
             <PlaylistItem track={{title: 'Guilt',author: 'Nero',album: 'Welcome Reality', time:'4:44'}}/>
             <PlaylistItem track={{title: 'Elektro',author: 'Dynoro, Outwork, Mr. Gee',album: 'Elektro', time:'2:22'}}/>
@@ -30,6 +30,9 @@ function App() {
             <PlaylistItem track={{title: 'Run Run',author: 'Jaded, Will Clarke, AR/CO',album: 'Run Run', time:'2:54'}}/>
           </div>
         </div>
+        <div>
+          <Sidebar/>
+          </div>
       </main>
       <Menu active={menuActive} setActive={setMenuActive} header={""} item={item}/>
    
