@@ -1,8 +1,11 @@
 import React from 'react';
+import './Playlist.css';
 
 const PlaylistItem = () => {
     // console.log(props)
     return (
+        <div className="centerblock__content">
+                       
         <div className="PlaylistItem">
             <div className="track__title">
                 <div className="track__title-image">
@@ -20,6 +23,7 @@ const PlaylistItem = () => {
             <div className="track__time">
                 <span className="track__time-text">4:44</span>
             </div>
+        </div>
         </div>
     );
 };

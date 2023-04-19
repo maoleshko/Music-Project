@@ -1,7 +1,8 @@
 import React from 'react';
+import './Sidebar.css';
 
 
-function MusicSelections() {
+function Sidebar() {
   return (
     <div className="sidebar__block">
         <div className="sidebar__list">
@@ -26,4 +27,4 @@ function MusicSelections() {
   )
 }
 
-export default MusicSelections;
+export default Sidebar;

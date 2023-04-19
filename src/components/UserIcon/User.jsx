@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function User() {
+function UserIcon() {
   return (
     <div className="main__sidebar sidebar">
     <div className="sidebar__personal">
@@ -14,4 +14,4 @@ function User() {
     )
 }
 
-export default User;
+export default UserIcon;
