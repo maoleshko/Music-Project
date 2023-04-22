@@ -49,6 +49,55 @@ body {
   color: #FFFFFF;
 }
 
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: #383838;
+
+}
+
+.container {
+    max-width: 1920px;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    background-color: #181818;
+
+}
+
+._btn-text:hover {
+    border-color: #D9B6FF;
+    color: #D9B6FF;
+    cursor: pointer;
+}
+
+._btn-icon:hover svg {
+    fill: transparent;
+    stroke: #ACACAC;
+    cursor: pointer;
+}
+
+._btn-text:active {
+    border-color: #AD61FF;
+    color: #AD61FF;
+    cursor: pointer;
+}
+
+._btn-icon:active svg {
+    fill: transparent;
+    stroke: #FFFFFF;
+    cursor: pointer;
+
+}
+
+._btn-icon:active .track-play__like-svg,
+._btn-icon:active .track-play__dislike-svg {
+    fill: #696969;
+    stroke: #FFFFFF;
+    cursor: pointer;
+}
+
 .App {
     width: 800px; 
 }
@@ -64,14 +113,27 @@ nav {
 }
 
 main {
+    flex: 1 1 auto;
     display: flex;
-    padding: 50px;
-    flex-direction: row;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-    gap: 125px;
-    padding-right: 200px;
-    padding-left: 200px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main__nav {
+    width: 244px;
+    background-color: #181818;
+    padding: 20px 0 20px 36px;
+}
+
+.main__centerblock {
+    width: auto;
+    flex-grow: 3;
+    padding: 20px 40px 20px 111px;
+}
+
+.main__sidebar {
+    max-width: 418px;
+    padding: 20px 90px 20px 78px;
 }
 
 
