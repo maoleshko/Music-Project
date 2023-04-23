@@ -12,13 +12,13 @@
     transform: translateX(0);
 }
 
-.blur {
+/* .blur {
     width: 100vh;
     height: 100vh;
     backdrop-filter: blur(2px);
     position: absolute;
     left: 30%;
-}
+} */
 
 .menu__content {
     width: 30%;

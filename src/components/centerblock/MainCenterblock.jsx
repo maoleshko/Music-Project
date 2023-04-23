@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainCenterblock.css';
+import './mainCenterblock.css';
 
 
 function MainCenterblock() {

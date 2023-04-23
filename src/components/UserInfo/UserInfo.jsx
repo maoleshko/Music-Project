@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function UserInfo() {
+function userInfo() {
   return (
     <div className="main__sidebar sidebar">
     <div className="sidebar__personal">
@@ -14,4 +14,4 @@ function UserInfo() {
     )
 }
 
-export default UserInfo;
+export default userInfo;

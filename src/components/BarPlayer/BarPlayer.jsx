@@ -1,9 +1,9 @@
 import React from 'react';
-import './BarPlayer.css';
+import './barPlayer.css';
 import sprite from '../../img/icon/sprite.svg'
 
 
-function BarPlayer() {
+function barPlayer() {
   return (
     <div className="bar">
     <div className="bar__content">
@@ -87,4 +87,4 @@ function BarPlayer() {
     )
 }
 
-export default  BarPlayer;
+export default  barPlayer;

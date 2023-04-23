@@ -1,5 +1,5 @@
 import React from 'react';
-import './Playlist.css';
+import './playlist.css';
 import sprite from '../../img/icon/sprite.svg'
 
 const PlaylistItem = () => {

@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import './style/App.css';
-import PlaylistItem from "./components/Playlist/PlaylistItem";
-import Search from './components/Search/Search';
-import Sidebar from './components/Sidebar/Sidebar'
-// import UserInfo from './components/UserInfo'
+import './style/app.css';
+import PlaylistItem from './components/playlist/playlistItem';
+import Search from './components/search/search';
+import Sidebar from './components/sidebar/sidebar'
+import Menu from './components/burgerMenu/menu';
+import MainCenterblock from './components/centerblock/mainCenterblock';
+import BarPlayer from './components/barPlayer/barPlayer';
 
-import Menu from './components/burgerMenu/Menu';
-import MainCenterblock from './components/centerblock/MainCenterblock';
-import BarPlayer from './components/BarPlayer/BarPlayer';
-
-function App() {
+function app() {
   const [menuActive, setMenuActive] = useState(false)
   const item = [{value:"Главное", href: "/main"}, {value:"Мои треки", href: "/mytrack"}, {value:"Войти", href: "/sign"}]
   return (
@@ -26,7 +24,8 @@ function App() {
           <div className="main__centerblock centerblock">
           <Search/>
           <MainCenterblock/>
-          <div className='Playlist'>
+          <div className='playlist'>
+            <PlaylistItem/>
             <PlaylistItem track={{title: 'Guilt',author: 'Nero',album: 'Welcome Reality', time:'4:44'}}/>
             <PlaylistItem track={{title: 'Elektro',author: 'Dynoro, Outwork, Mr. Gee',album: 'Elektro', time:'2:22'}}/>
             <PlaylistItem track={{title: 'I’m Fire',author: 'Ali Bakgor',album: 'I’m Fire', time:'2:22'}}/>
@@ -40,7 +39,7 @@ function App() {
           </div>
           </div>
           <div className="main__sidebar sidebar">
-            {/* <UserInfo/> */}
+            {/* <userInfo/> */}
             <Sidebar/>
           </div>
       </main>
@@ -54,4 +53,4 @@ function App() {
   );
 }
 
-export default App;
+export default app;
