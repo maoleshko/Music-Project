@@ -35,10 +35,7 @@ ul li {
 }
 
 #root {
-    display: flex;
-    justify-content: space-between;
     background-color:#181818;
-
 }
 
   html,
@@ -102,14 +99,29 @@ body {
     width: 800px; 
 }
 
+
 nav {
-    height: 50px;
-    width: 100%;
+    height: 70px;
     position: fixed;
     z-index: 50;
     display: flex;
-    align-items: center;
-    gap:20px;
+    align-items: flex-start;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.nav__logo {
+    background-image: url("../img/logo.png");
+    /* width: 125px;
+    height:20px; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 10px; 
+    width: 113.33px;
+    height: 43px;
+    padding: 13px 0 13px 0;
+    background-color: transparent;
+    margin-bottom: 20px;
 }
 
 main {
@@ -129,6 +141,7 @@ main {
     width: auto;
     flex-grow: 3;
     padding: 20px 40px 20px 111px;
+    margin-left: 230px;
 }
 
 .main__sidebar {
@@ -140,17 +153,16 @@ main {
 .burger-btn {
     width: 20px;
     height: 20px;
-    margin-left: 20px;
     position: relative;
 }
 
 .burger-btn:before {
     content: "";
     position: absolute;
-    top: 0;
+    top: 5px;
     width: 20px;
     background-color: whitesmoke;
-    height: 2px; 
+    height: 1px; 
 }
 
 .burger-btn span {
@@ -159,21 +171,47 @@ main {
     top: 10px;
     width: 20px;
     background-color: whitesmoke;
-    height: 2px;
+    height: 1px;
 }
 
 .burger-btn:after {
     content: "";
     position: absolute;
     bottom: 0;
-    top: 20px;
+    top: 15px;
     width: 20px;
     background-color: whitesmoke;
-    height: 2px;
+    height: 1px;
 }
-    
-.PlaylistItem {
+
+.centerblock__content {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
+    flex-direction: column;
+  }
+
+.centerblock__search {
+        width: 100%;
+        border-bottom: 1px solid #4E4E4E;
+        margin-bottom: 51px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .centerblock__h2 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 72px;
+        letter-spacing: -0.8px;
+        margin-bottom: 45px;
+    }
+
+
+    .centerblock__filter {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 51px;
+        gap:10px;
+    }

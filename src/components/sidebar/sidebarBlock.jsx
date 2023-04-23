@@ -1,11 +1,11 @@
 import React from 'react';
-import './sidebar.css';
+import './sidebarBlock.css';
 import playlist01 from '../../img/playlist01.png'
 import playlist02 from '../../img/playlist02.png'
 import playlist03 from '../../img/playlist03.png'
 
 
-function Sidebar() {
+function SidebarBlock() {
   return (
     <div className="sidebar__block">
         <div className="sidebar__list">
@@ -30,4 +30,4 @@ function Sidebar() {
   )
 }
 
-export default Sidebar;
+export default SidebarBlock;

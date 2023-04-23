@@ -2,8 +2,8 @@ import React from 'react';
 import './playlist.css';
 import sprite from '../../img/icon/sprite.svg'
 
-const PlaylistItem = () => {
-    // console.log(props)
+const Playlist = () => {
+    
     return (
         <div className="centerblock__content">
 
@@ -39,4 +39,4 @@ const PlaylistItem = () => {
     );
 };
 
-export default PlaylistItem;
+export default Playlist;
