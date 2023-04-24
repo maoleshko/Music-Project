@@ -1,7 +1,7 @@
 import React from 'react';
 import './centerblockContent.css';
 // import Tracklist from '../playlist/tracklist';
-import Playlist from '../playlist/playlistItem';
+import PlaylistItem from '../playlist/playlistItem';
 
 
 function CenterblockContent() {
@@ -23,16 +23,16 @@ function CenterblockContent() {
       </div>
       <div className='content__playlist playlist'>
         {/* <Tracklist tracks = {tracks}/> */}
-        <Playlist track={{id: 1, title: 'Guilt',author: 'Nero',album: 'Welcome Reality', time:'4:44'}}/>
-              <Playlist track={{id: 2,title: 'Elektro',author: 'Dynoro, Outwork, Mr. Gee',album: 'Elektro', time:'2:22'}}/>
-              <Playlist track={{id: 3,title: 'I’m Fire',author: 'Ali Bakgor',album: 'I’m Fire', time:'2:22'}}/>
-              <Playlist track={{id: 4,title: 'Non Stop',author: 'Стоункат, Psychopath',album: 'Non Stop', time:'4:412'}}/>
-              <Playlist track={{id: 5,title: 'Run Run',author: 'Jaded, Will Clarke, AR/CO',album: 'Run Run', time:'2:54'}}/>
-              <Playlist track={{id: 6,title: 'Guilt',author: 'Nero',album: 'Welcome Reality', time:'4:44'}}/>
-              <Playlist track={{id: 7,title: 'Elektro',author: 'Dynoro, Outwork, Mr. Gee',album: 'Elektro', time:'2:22'}}/>
-              <Playlist track={{id: 8,title: 'I’m Fire',author: 'Ali Bakgor',album: 'I’m Fire', time:'2:22'}}/>
-              <Playlist track={{id: 9,title: 'Non Stop',author: 'Стоункат, Psychopath',album: 'Non Stop', time:'4:412'}}/>
-              <Playlist track={{id: 10,title: 'Run Run',author: 'Jaded, Will Clarke, AR/CO',album: 'Run Run', time:'2:54'}}/>
+              <PlaylistItem track={{id: 1, title: 'Guilt',author: 'Nero',album: 'Welcome Reality', time:'4:44'}}/>
+              <PlaylistItem track={{id: 2,title: 'Elektro',author: 'Dynoro, Outwork, Mr. Gee',album: 'Elektro', time:'2:22'}}/>
+              <PlaylistItem track={{id: 3,title: 'I’m Fire',author: 'Ali Bakgor',album: 'I’m Fire', time:'2:22'}}/>
+              <PlaylistItem track={{id: 4,title: 'Non Stop',author: 'Стоункат, Psychopath',album: 'Non Stop', time:'4:12'}}/>
+              <PlaylistItem track={{id: 5,title: 'Run Run',author: 'Jaded, Will Clarke, AR/CO',album: 'Run Run', time:'2:54'}}/>
+              <PlaylistItem track={{id: 6,title: 'Guilt2',author: 'Nero',album: 'Welcome Reality', time:'4:44'}}/>
+              <PlaylistItem track={{id: 7,title: 'Elektr2o',author: 'Dynoro, Outwork, Mr. Gee',album: 'Elektro', time:'2:22'}}/>
+              <PlaylistItem track={{id: 8,title: 'I’m Fir2e',author: 'Ali Bakgor',album: 'I’m Fire', time:'2:22'}}/>
+              <PlaylistItem track={{id: 9,title: 'Non Stop2',author: 'Стоункат, Psychopath',album: 'Non Stop', time:'4:42'}}/>
+              <PlaylistItem track={{id: 10,title: 'Run Run2',author: 'Jaded, Will Clarke, AR/CO',album: 'Run Run', time:'2:54'}}/>
         </div>
     </div>
    
