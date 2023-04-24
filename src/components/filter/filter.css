@@ -29,11 +29,9 @@
   font-size: 16px;
   line-height: 24px;
   border-radius: 60px;
-  padding: 6px 20px;
+  height: 50px;
  }
   
-
-
   .dropdown-menu {
     background-color: #313131;
     border-radius: 10px;
@@ -70,6 +68,7 @@
   .dropdown-menu ul li{
     padding: 10px  0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 100;
   }
   
   .dropdown-menu ul li:hover a{
@@ -85,13 +84,6 @@
   .dropdownItem{
     display: flex;
     margin: 10px auto;
-  }
-  
-  .dropdownItem img{
-    max-width: 20px;
-    margin-right: 10px;
-    opacity: 0.5;
-    transition: var(--speed);
   }
   
   .dropdownItem a{
