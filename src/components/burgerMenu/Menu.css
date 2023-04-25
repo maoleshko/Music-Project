@@ -6,6 +6,7 @@
     left: 0;
     transform: translateX(-130%);
     transition: all 0.4s;
+    z-index: 50;
 }
 
 .menu.active {
@@ -13,11 +14,12 @@
 }
 
 .nav__menu {
-    width: 244px;
-    /* background-color: #181818; */
+    width: 220px;
+    background-color: #181818;
     padding: 20px 0 20px 36px;
     margin-top: 58px;
     transition: all 0.4s
+
    
 }
 

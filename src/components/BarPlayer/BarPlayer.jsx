@@ -3,7 +3,7 @@ import './barPlayer.css';
 import sprite from '../../img/icon/sprite.svg'
 
 
-function barPlayer() {
+function BarPlayer() {
   return (
     <div className="bar">
     <div className="bar__content">
@@ -87,4 +87,4 @@ function barPlayer() {
     )
 }
 
-export default  barPlayer;
+export default  BarPlayer;
