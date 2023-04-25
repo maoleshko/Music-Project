@@ -7,6 +7,7 @@ import Personal from './components/personal/personal';
 import SidebarBlock from './components/sidebar/sidebarBlock';
 import Menu from './components/burgerMenu/menu';
 import BarPlayer from './components/barPlayer/BarPlayer';
+import SkeletonLoading from './components/skeletonLoading';
 
 
 
@@ -27,10 +28,16 @@ function App() {
           </nav>
           <div className="main__centerblock centerblock">
           <Search/>
-          <h2 className="centerblock__h2">Треки</h2>
+          <SkeletonLoading>
+            <h2 className="centerblock__h2">Треки</h2>
+      
+          </SkeletonLoading>
+          
+          <div>
+          
+          </div>
           <Filter/>          
           <CenterblockContent/>
-         
           </div>
           <div className="main__sidebar sidebar">
             <Personal/>
@@ -47,3 +54,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
