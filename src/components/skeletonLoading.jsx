@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Skeleton from "react-loading-skeleton";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function SkeletonLoading(props) {
   const [loading, setLoading] = useState(true);
@@ -10,13 +11,13 @@ function SkeletonLoading(props) {
   }, []);
 
   return (
-    <div>
+    <div className="skeleton-container">
       {loading ? (
         // Отображение компонента Skeleton для эмуляции загрузки
-        <Skeleton height={150} width={50} count={2} />
+        <Skeleton height={50} count={1} />
       ) : (
         // Отображение контента, переданного через props.children
-        <div>{props.children}</div>
+        <div className="skeleton-element">{props.children}</div>
       )}
     </div>
   );
