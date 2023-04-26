@@ -5,9 +5,11 @@ function Modal(props) {
   return (
     isOpen ? (
       <div className='modal-overlay'>
-        <div className='modal-content'>
-          <button className='modal-close' onClick={onClose}>Закрыть</button>
-          {children}
+        <div className='modal-content' onClick={onClose}>
+          <div>
+            {children}
+          </div>
+          
         </div>
       </div>
     ) : null

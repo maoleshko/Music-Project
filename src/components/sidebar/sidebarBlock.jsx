@@ -11,26 +11,25 @@ function SidebarBlock() {
     <div className="sidebar__block">
         <div className="sidebar__list">
             <div className="sidebar__item">
-                <a className="sidebar__link" href="#">
-                <SkeletonLoading>
+            <a className="sidebar__link" href="#">
+
+            <SkeletonLoading width={250} height={150}>
                     <img className="sidebar__img" src={playlist01} alt="day's playlist"/>
                 </SkeletonLoading>
-                    
-                </a>
+            </a>
             </div>
             <div className="sidebar__item">
                 <a className="sidebar__link" href="#">
-                <SkeletonLoading>
-                    <img className="sidebar__img" src={playlist02} alt="100 dance hit"/>
+                <SkeletonLoading width={250} height={150}>
+                <img className="sidebar__img" src={playlist02} alt="100 dance hit"/>
                 </SkeletonLoading>
                 </a>
             </div>
             <div className="sidebar__item">
                 <a className="sidebar__link" href="#">
-                <SkeletonLoading>
-                    <img className="sidebar__img" src={playlist03} alt="indi-energy"/>
+                <SkeletonLoading width={250} height={150}>
+                <img className="sidebar__img" src={playlist03} alt="indi-energy"/>
                 </SkeletonLoading>
-                    
                 </a>
             </div>
         </div>

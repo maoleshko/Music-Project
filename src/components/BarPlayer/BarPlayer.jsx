@@ -1,6 +1,7 @@
 import React from 'react';
 import './barPlayer.css';
 import sprite from '../../img/icon/sprite.svg'
+import SkeletonLoading from '../skeletonLoading';
 
 function BarPlayer() {
   return (
@@ -39,28 +40,26 @@ function BarPlayer() {
                 
                 <div className="player__track-play track-play">
                     <div className="track-play__contain">
-                   
-                        <div className="track-play__image">
+                    
+                    <div className="track-play__image">
+                        <SkeletonLoading width={51} height={51}>
                             <svg className="track-play__svg" alt="music">
                                 <use xlinkHref={`${sprite}#icon-note`}></use>
                             </svg>
+                        </SkeletonLoading>
                         </div>
-                    
-                        
                     
                         <div className="track-play__author">
+                        <SkeletonLoading width={50} height={15}>
                             <a className="track-play__author-link" href="http://">Ты та...</a>
+                            </SkeletonLoading>
                         </div>
-                    
-                        
-                    
-                    
-                        <div className="track-play__album">
-                            <a className="track-play__album-link" href="http://">Баста</a>
-                        </div>
-                   
-                        
 
+                        <div className="track-play__album">
+                        <SkeletonLoading width={50} height={15}>
+                            <a className="track-play__album-link" href="http://">Баста</a>
+                            </SkeletonLoading>
+                        </div>
                     </div>
 
                     <div className="track-play__like-dis">

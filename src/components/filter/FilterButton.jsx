@@ -1,18 +1,21 @@
 import React from 'react';
 
-function Filter(props) {
+function FilterButton(props) {
   const { filters, onSelectFilter } = props;
   const handleSelectFilter = (filter) => {
     onSelectFilter(filter);
   };
   return (
-    <div>
+    <div className='menu-container'>
       {filters.map((filter) => (
-        <button key={filter.id} onClick={() => handleSelectFilter(filter)}>
+        <button className='filter__button _btn-text menu-trigger' key={filter.id} onClick={() => handleSelectFilter(filter)}>
           {filter.label}
         </button>
       ))}
+
+      
     </div>
   );
 }
-export default Filter;
+
+export default FilterButton;

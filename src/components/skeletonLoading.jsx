@@ -11,17 +11,18 @@ function SkeletonLoading(props) {
   }, []);
 
   return (
-    <div className="skeleton-container">
+    <div>
       {loading ? (
         // Отображение компонента Skeleton для эмуляции загрузки
-        <Skeleton height={50} count={1} />
+        <Skeleton width={props.width} height={props.height} />
       ) : (
         // Отображение контента, переданного через props.children
-        <div className="skeleton-element">{props.children}</div>
+        <div>{props.children}</div>
       )}
     </div>
   );
 }
+
 
   export default SkeletonLoading;
 
