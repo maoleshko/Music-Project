@@ -210,7 +210,7 @@ main {
 
     .centerblock__filter {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         margin-bottom: 51px;
         gap: 10px;
     }

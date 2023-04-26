@@ -1,62 +1,66 @@
 import React, {useState} from 'react';
 import './filter.css';
-import Modal from './Modal';
-import List from './List';
-import FilterButton from './FilterButton';
 
+  const CategoryButton = ({ category, isActive, onClick }) => {
+    return (
+      <button
+        className={`filter__button ${isActive ? "active" : ""}`}
+        onClick={onClick}
+      >
+        {category}
+      </button>
+    );
+  };
 
-function Filter() {
-  const [isOpen, setIsOpen] = useState(false);
-    const [selectedFilter, setSelectedFilter] = useState(null);
-    const filters = [
-      { id: 1, label: 'исполнителю' },
-      { id: 2, label: 'году выпуска' },
-      { id: 3, label: 'жанру' },
-    ];
-    const handleCloseModal = () => {
-      setIsOpen(false);
-    };
-    const handleSelectFilter = (filter) => {
-      setSelectedFilter(filter);
-      setIsOpen(true);
-    };
-    const renderModalContent = () => {
-      if (!selectedFilter) {
-        return null;
-      }
-      let content = null;
-      switch (selectedFilter.id) {
-        case 1:
-          content = <List className='autor' items={['Исполнитель 1', 'Исполнитель 2', 'Исполнитель 3']} />;
-          break;
-        case 2:
-          content = <List className='year' items={['2020', '2019', '2018', '2017']} />;
-          break;
-        case 3:
-          content = <List className='genre' items={['Жанр 1', 'Жанр 2', 'Жанр 3']} />;
-          break;
-        default:
-          content = null;
-          break;
-      }
-      return content;
-    };
-  return (
-    <div className="centerblock__filter filter">
-      <div className='filter__category'>
-        <div className="filter__title">Искать по:</div>
-        <FilterButton filters={filters} onSelectFilter={handleSelectFilter} /> 
+  const Dropdown = ({ data }) => {
+    return (
+      <div className="dropdown">
+        {data.map((item) => (
+          <div key={item} className="dropdown-item">
+            {item}
+          </div>
+        ))}
       </div>
-      <div>
-        <Modal isOpen={isOpen} onClose={handleCloseModal} >
-          {renderModalContent()}
-        </Modal> 
-      </div>        
-    </div>
-    )
-}
+    );
+  };
 
+const Appapp = () => {
+  const [activeCategory, setActiveCategory] = useState(null);
 
+  const categories = [
+    { name: "Исполнители", data: ["Исполнитель 1", "Исполнитель 2", "Исполнитель 3"] },
+    { name: "Год выпуска", data: ["2020", "2019", "2018"] },
+    { name: "Жанры", data: ["Жанр 1", "Жанр 2", "Жанр 3"] }
+  ];
 
+  const handleCategoryClick = (categoryName) => {
+    if (activeCategory === categoryName) {
+      setActiveCategory(null);
+    } else {
+      setActiveCategory(categoryName);
+    }
+  };
 
-export default Filter;
+  return (
+      <div className="centerblock__filter filter">
+          <div className="filter__title">Искать по:</div>
+          <div className='filter__category category'>
+                {categories.map((category) => (
+              <div key={category.name} className="category">
+                <CategoryButton
+                  category={category.name}
+                  isActive={activeCategory === category.name}
+                  onClick={() => handleCategoryClick(category.name)}
+                />
+                {activeCategory === category.name && (
+                  <Dropdown data={category.data} />
+                )}
+              </div>
+            ))}
+          </div>        
+        </div>
+  
+  );
+};
+
+export default Appapp;
