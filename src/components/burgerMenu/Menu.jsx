@@ -5,7 +5,6 @@ const Menu = ({item, active, setActive}) => {
     return (
         <div className={active ? 'menu active' : 'menu'} onClick={() => setActive(false)}>
             <div className="nav__menu">
-                
                 <ul className="menu__list">
                     { 
                     item.map((item) => 
@@ -15,7 +14,6 @@ const Menu = ({item, active, setActive}) => {
                     )}
                 </ul>
             </div>
-
         </div>
     )
 }

@@ -9,7 +9,6 @@ import Menu from './components/burgerMenu/menu';
 import BarPlayer from './components/barPlayer/BarPlayer';
 
 
-
 function App() {
   const [menuActive, setMenuActive] = useState(false)
   const item = [{id: 1, value:"Главное", href: "/main"}, {id: 2,value:"Мои треки", href: "/mytrack"}, {id: 3,value:"Войти", href: "/sign"}]
@@ -45,7 +44,3 @@ function App() {
 }
 
 export default App;
-
-
-
-

@@ -17,13 +17,14 @@
 .search__text {
     flex-grow: 100;
     background-color: transparent;
+    color: #FFFFFF;
     border: none;
     padding: 13px 10px 14px;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+   
 }
 
 .search::placeholder {

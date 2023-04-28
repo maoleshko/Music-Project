@@ -2,7 +2,6 @@ import React from 'react';
 import './search.css';
 import sprite from '../../img/icon/sprite.svg'
 
-
 function Search() {
   return (
     <div className="centerblock__search search">

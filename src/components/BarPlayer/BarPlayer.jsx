@@ -6,7 +6,7 @@ import SkeletonLoading from '../skeletonLoading';
 function BarPlayer() {
   return (
     <div className="bar">
-    <div className="bar__content">
+        <div className="bar__content">
         <div className="bar__player-progress"></div>
         <div className="bar__player-block">
             <div className="bar__player player">
@@ -37,10 +37,8 @@ function BarPlayer() {
                         </svg>
                     </div>
                 </div>
-                
                 <div className="player__track-play track-play">
                     <div className="track-play__contain">
-                    
                     <div className="track-play__image">
                         <SkeletonLoading width={51} height={51}>
                             <svg className="track-play__svg" alt="music">
@@ -48,20 +46,17 @@ function BarPlayer() {
                             </svg>
                         </SkeletonLoading>
                         </div>
-                    
                         <div className="track-play__author">
                         <SkeletonLoading width={50} height={15}>
                             <a className="track-play__author-link" href="http://">Ты та...</a>
                             </SkeletonLoading>
                         </div>
-
                         <div className="track-play__album">
                         <SkeletonLoading width={50} height={15}>
                             <a className="track-play__album-link" href="http://">Баста</a>
                             </SkeletonLoading>
                         </div>
                     </div>
-
                     <div className="track-play__like-dis">
                         <div className="track-play__like _btn-icon">
                             <svg className="track-play__like-svg" alt="like">
@@ -86,13 +81,12 @@ function BarPlayer() {
                     <div className="volume__progress _btn">
                         <input className="volume__progress-line _btn" type="range" name="range"/>
                     </div>
-                    
                </div>
             </div>
         </div>
+        </div>
     </div>
-</div>
-        
+     
     )
 }
 
