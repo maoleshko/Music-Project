@@ -3,6 +3,7 @@ import './barPlayer.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeletonLoading';
 
+
 function BarPlayer() {
   return (
     <div className="bar">
