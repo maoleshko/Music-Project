@@ -24,7 +24,7 @@ const PlaylistItem = (props) => {
                             </div>
                         </div>
                             <div className="track__author">
-                                <SkeletonLoading width={320} height={25}>
+                                <SkeletonLoading width={300} height={25}>
                                         <a className="track__author-link" href="http://">{props.track.author}</a>
                                 </SkeletonLoading>
                             </div>
