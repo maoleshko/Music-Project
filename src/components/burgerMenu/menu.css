@@ -1,24 +1,19 @@
 .menu {
     position: fixed;
-    width: 224px;
-    height: 100vh;
+    width: 220px;
+    
     top: 50px;
     left: 0;
     transform: translateX(-130%);
     transition: all 0.4s;
-    z-index: 50;
+    z-index: 150;
+    padding: 15px 0 20px 36px;
+    margin-top: 60px;
 }
 
 .menu.active {
     transform: translateX(0);
-}
-
-.nav__menu {
-    width: 220px;
-    background-color: #181818;
-    padding: 20px 0 20px 36px;
-    margin-top: 58px;
-    transition: all 0.4s
+    margin-left: 55px;
 }
 
 ul li a {

@@ -1,14 +1,14 @@
 import React from 'react';
-import './search.css';
+import s from './search.module.css';
 import sprite from '../../img/icon/sprite.svg'
 
 function Search() {
   return (
-    <div className="centerblock__search search">
-      <svg className="search__svg">
+    <div className={s.search}>
+      <svg className={s.svg}>
         <use xlinkHref={`${sprite}#icon-search`}></use>
       </svg>
-      <input className="search__text" type="search" placeholder="Поиск" name="search"/>
+      <input className={s.text} type="search" placeholder="Поиск" name="search"/>
     </div>
     )
 }

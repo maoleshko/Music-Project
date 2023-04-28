@@ -1,22 +1,22 @@
 import React from 'react';
-import './centerblockContent.css';
+import s from'./centerblock.module.css';
 import PlaylistItem from '../playlist/playlistItem';
 import sprite from '../../img/icon/sprite.svg'
 
 function CenterblockContent() {
   return (
-    <div className="centerblock__content">
-       <div className="content__title playlist-title">
-          <div className="playlist-title__col col01">Трек</div>
-          <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-          <div className="playlist-title__col col03">АЛЬБОМ</div>
-          <div className="playlist-title__col col04">
-            <svg className="playlist-title__svg" alt="time">
+    <div className={s.content}>
+       <div className={s.content_title}>
+          <div className={s.title_col}>Трек</div>
+          <div className={s.title_col}>ИСПОЛНИТЕЛЬ</div>
+          <div className={s.title_col}>АЛЬБОМ</div>
+          <div className={s.title_col}>
+            <svg className={s.time_svg} alt="time">
               <use xlinkHref={`${sprite}#icon-watch`}></use>
             </svg>
           </div>
       </div>
-      <div className='content__playlist playlist'>   
+      <div className={s.playlist}>   
         <PlaylistItem track={{id: 1, title: 'Guilt',author: 'Nero',album: 'Welcome Reality', time:'4:44'}}/>
         <PlaylistItem track={{id: 2,title: 'Elektro',author: 'Dynoro, Outwork, Mr. Gee',album: 'Elektro', time:'2:22'}}/>
         <PlaylistItem track={{id: 3,title: 'I’m Fire',author: 'Ali Bakgor',album: 'I’m Fire', time:'2:22'}}/>

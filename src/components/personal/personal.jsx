@@ -1,12 +1,12 @@
 import React from 'react';
-import './personal.css';
+import s from './personal.module.css';
 
 
 function Personal() {
   return (
-    <div className="sidebar__personal">
-      <p className="sidebar__personal-name">Sergey.Ivanov</p>
-      <div className="sidebar__avatar"/>
+    <div className={s.personal}>
+      <p className={s.personal_name}>Sergey.Ivanov</p>
+      <div className={s.avatar}/>
   </div>
     
     )

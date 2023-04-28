@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './filter.css';
 
-  const CategoryButton = ({ category, isActive, onClick }) => {
+  const CategoryButton = ({category, isActive, onClick }) => {
     return (
       <button
         className={`filter__button ${isActive ? "active" : ""}`}
@@ -43,8 +43,11 @@ const Appapp = () => {
   };
   
   return (
-      <div className="centerblock__filter filter">
-          <div className="filter__title">Искать по:</div>
+      <div className="centerblock__filter ">
+          <h2 className="h2">Треки</h2> 
+          <div className='filter'>
+      
+        <div className="filter__title">Искать по:</div>
           <div className='filter__category category'>
                 {categories.map((category) => (
               <div key={category.name} className="category">
@@ -58,9 +61,9 @@ const Appapp = () => {
                 )}
               </div>
             ))}
-          </div>        
-        </div>
-  
+          </div>
+        </div>   
+      </div>
   );
 };
 

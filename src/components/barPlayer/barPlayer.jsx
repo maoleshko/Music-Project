@@ -1,17 +1,17 @@
 import React from 'react';
-import './barPlayer.css';
+import s from './barPlayer.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeletonLoading';
 
 
 function BarPlayer() {
   return (
-    <div className="bar">
-        <div className="bar__content">
-        <div className="bar__player-progress"></div>
-        <div className="bar__player-block">
-            <div className="bar__player player">
-                <div className="player__controls">
+    
+        <div className={s.content}>
+        <div className={s.player_progress}></div>
+        <div className={s.player_block}>
+            <div className={s.player}>
+                <div className={s.player__controls}>
                     <div className="player__btn-prev">
                         <svg className="player__btn-prev-svg" alt="prev">
                             <use xlinkHref={`${sprite}#icon-prev`}></use>
@@ -86,7 +86,7 @@ function BarPlayer() {
             </div>
         </div>
         </div>
-    </div>
+   
      
     )
 }
