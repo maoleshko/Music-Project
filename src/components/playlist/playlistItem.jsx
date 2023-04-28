@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './playlistitem.module.css';
 import sprite from '../../img/icon/sprite.svg'
-import SkeletonLoading from '../skeletonLoading';
+import SkeletonLoading from '../skeleton/skeletonLoading';
 
 
 const PlaylistItem = (props) => {
     return (
-        <div className="block">
+        <div className={s.track_list}>
             <div className={s.content}>
                 <div className={s.item}>
                     <div className={s.track}>
@@ -19,18 +19,18 @@ const PlaylistItem = (props) => {
                                 </SkeletonLoading>      
                             </div>
                             <div className={s.title_text}>
-                                <SkeletonLoading width={350} height={25}>
+                                <SkeletonLoading width={340} height={25}>
                                     <a className={s.title_link} href="http://">{props.track.title} <span className="track__title-span"></span></a>
                                 </SkeletonLoading>
                             </div>
                         </div>
                             <div className={s.author}>
-                                <SkeletonLoading width={300} height={25}>
+                                <SkeletonLoading width={290} height={25}>
                                         <a className={s.author_link} href="http://">{props.track.author}</a>
                                 </SkeletonLoading>
                             </div>
                             <div className={s.album}>
-                                <SkeletonLoading width={320} height={25}>
+                                <SkeletonLoading width={310} height={25}>
                                     <a className={s.album_link} href="http://">{props.track.album}</a>
                                 </SkeletonLoading>
                             </div>

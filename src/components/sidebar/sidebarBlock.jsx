@@ -3,7 +3,7 @@ import s from './sidebarBlock.module.css';
 import playlist01 from '../../img/playlist01.png'
 import playlist02 from '../../img/playlist02.png'
 import playlist03 from '../../img/playlist03.png'
-import SkeletonLoading from '../skeletonLoading';
+import SkeletonLoading from '../skeleton/skeletonLoading';
 
 
 function SidebarBlock() {

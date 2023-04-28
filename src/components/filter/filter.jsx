@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import './filter.css';
+import s from './filter.module.css';
 
   const CategoryButton = ({category, isActive, onClick }) => {
     return (
       <button
-        className={`filter__button ${isActive ? "active" : ""}`}
+        className={`${s.filter__button} ${isActive ? s.active : ""}`}
         onClick={onClick}
       >
         {category}
@@ -14,9 +14,9 @@ import './filter.css';
 
   const Dropdown = ({ data }) => {
     return (
-      <div className="dropdown">
+      <div className={s.dropdown}>
         {data.map((item) => (
-          <div key={item} className="dropdown-item">
+          <div key={item} className={s.dropdown_item}>
             {item}
           </div>
         ))}
@@ -43,14 +43,14 @@ const Appapp = () => {
   };
   
   return (
-      <div className="centerblock__filter ">
-          <h2 className="h2">Треки</h2> 
-          <div className='filter'>
+      <div className={s.centerblock__filter}>
+          <h2 className={s.h2}>Треки</h2> 
+          <div className={s.filter}>
       
-        <div className="filter__title">Искать по:</div>
-          <div className='filter__category category'>
+        <div className={s.filter__title}>Искать по:</div>
+          <div className={s.filter__category_btn} >
                 {categories.map((category) => (
-              <div key={category.name} className="category">
+              <div key={category.name} className={s.category}>
                 <CategoryButton
                   category={category.name}
                   isActive={activeCategory === category.name}

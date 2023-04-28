@@ -76,6 +76,12 @@
 .album {
     width: 245px;
 }
+
+.time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
     
 .album_link {
     font-style: normal;
