@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style/app.css';
+import './style/App.css';
 import Search from './components/search/search';
 import Filter from './components/filter/filter';
 import CenterblockContent from './components/centerblock/centerblockContent';

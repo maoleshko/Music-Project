@@ -21,6 +21,7 @@ import './filter.css';
           </div>
         ))}
       </div>
+      
     );
   };
 
@@ -28,7 +29,7 @@ const Appapp = () => {
   const [activeCategory, setActiveCategory] = useState(null);
 
   const categories = [
-    { name: "Исполнители", data: ["Исполнитель 1", "Исполнитель 2", "Исполнитель 3"] },
+    { name: "Исполнители", data: ["Исполнитель 1", "Исполнитель 2", "Исполнитель 3", "Исполнитель 4", "Исполнитель 5"] },
     { name: "Год выпуска", data: ["2020", "2019", "2018"] },
     { name: "Жанры", data: ["Жанр 1", "Жанр 2", "Жанр 3"] }
   ];
@@ -40,7 +41,7 @@ const Appapp = () => {
       setActiveCategory(categoryName);
     }
   };
-
+  
   return (
       <div className="centerblock__filter filter">
           <div className="filter__title">Искать по:</div>
