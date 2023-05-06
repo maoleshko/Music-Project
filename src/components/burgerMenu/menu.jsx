@@ -12,6 +12,8 @@ const Menu = ({item, active, setActive}) => {
                         <li className={s.menu__item} key={item.id}>
                             <a href={item.href}>{item.value}</a>
                         </li>
+
+                        
                     )}
                 </ul>
             </div>

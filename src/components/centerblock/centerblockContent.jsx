@@ -4,7 +4,7 @@ import PlaylistItem from '../playlist/playlistItem';
 import sprite from '../../img/icon/sprite.svg'
 
 function CenterblockContent() {
-  return (
+   return (
     <div className={s.content}>
        <div className={s.content_title}>
           <div className={s.title_track} >Трек</div>

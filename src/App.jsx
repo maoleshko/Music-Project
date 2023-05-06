@@ -7,18 +7,26 @@ import Personal from './components/personal/personal';
 import SidebarBlock from './components/sidebar/sidebarBlock';
 import Menu from './components/burgerMenu/menu';
 import BarPlayer from './components/barPlayer/barPlayer';
+import {AppRoutes} from './routes'
+import { NavBar } from './components/navbar';
 
 
 function App() {
   const [menuActive, setMenuActive] = useState(false)
-  const item = [{id: 1, value:"Главное", href: "/main"}, {id: 2,value:"Мои плейлист", href: "/mytrack"}, {id: 3,value:"Войти", href: "/sign"}]
-  return (
+  const item = [{id: 1, value:"Главное", href: "/"}, {id: 2,value:"Мои плейлист", href: "/mytrack"}, {id: 3,value:"Войти", href: "/login"}]
 
+  const [user, setUser] = useState(null);
+
+  const handleLogin = () => setUser({ login: "taradam" });
+
+  const handleLogout = () => setUser(null);
+  return (
     <div className={s.wrapper}>
       <div className={s.container}>
         <main className={s.main}>
           <nav className={s.nav}>
             <div className={s.logo}></div>
+            
             <div className={s.burger_btn} onClick={() => setMenuActive(!menuActive)}>
               <span/>
             </div>
@@ -26,7 +34,17 @@ function App() {
           </nav>
           <div className={s.centerblock}>
             <Search/>
-            <Filter/>          
+            <Filter/> 
+
+            <div className="App-layout">
+        <NavBar
+          user={user}
+          onAuthButtonClick={user ? handleLogout : handleLogin}
+        />
+        <AppRoutes user={user} />
+      </div>
+       
+
             <CenterblockContent/>
           </div>
           <div className={s.sidebar}>

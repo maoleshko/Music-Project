@@ -92,12 +92,12 @@
     border-radius: 10px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
-    overflow-y: scroll; /* добавляем полосу прокрутки */
-    scrollbar-width: thin; /* устанавливаем толщину полосы прокрутки */
-    scrollbar-color: #6b6b6b #313131; /* устанавливаем цвет полосы прокрутки */
+     overflow-y: scroll;
+    scrollbar-width: none; 
+    scrollbar-color: #6b6b6b #313131; 
 }
 
-/* 
+
 .dropdown::-webkit-scrollbar {
     width: 6px;
 } 
@@ -108,7 +108,7 @@
 
 .dropdown::-webkit-scrollbar-thumb {
     background-color: #6b6b6b;
-}  */
+}  
   
   .dropdown_item {
     padding: 10px;

@@ -19,13 +19,13 @@ const PlaylistItem = (props) => {
                                 </SkeletonLoading>      
                             </div>
                             <div className={s.title_text}>
-                                <SkeletonLoading width={340} height={25}>
+                                <SkeletonLoading width={330} height={25}>
                                     <a className={s.title_link} href="http://">{props.track.title} <span className="track__title-span"></span></a>
                                 </SkeletonLoading>
                             </div>
                         </div>
                             <div className={s.author}>
-                                <SkeletonLoading width={290} height={25}>
+                                <SkeletonLoading width={280} height={25}>
                                         <a className={s.author_link} href="http://">{props.track.author}</a>
                                 </SkeletonLoading>
                             </div>
