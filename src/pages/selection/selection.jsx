@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Mytrack = () => {
+export const Selection = () => {
     return (
         <div>
-            <h1>My track-list</h1>
+            <h1>Selection</h1>
         </div>
     )
 }

@@ -11,15 +11,17 @@ import {AppRoutes} from './routes'
 import { NavBar } from './components/navbar';
 
 
+
 function App() {
   const [menuActive, setMenuActive] = useState(false)
-  const item = [{id: 1, value:"Главное", href: "/"}, {id: 2,value:"Мои плейлист", href: "/mytrack"}, {id: 3,value:"Войти", href: "/login"}]
+  const item = [{id: 1, value:"Главное", href: "/"}, {id: 2,value:"Мои плейлист", href: "/mytrack"}]
 
   const [user, setUser] = useState(null);
-
   const handleLogin = () => setUser({ login: "taradam" });
-
   const handleLogout = () => setUser(null);
+
+ 
+
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
@@ -30,11 +32,14 @@ function App() {
             <div className={s.burger_btn} onClick={() => setMenuActive(!menuActive)}>
               <span/>
             </div>
-            <Menu active={menuActive} setActive={setMenuActive} header={""} item={item}/>  
+            <Menu active={menuActive} setActive={setMenuActive} header={""} item={item}/> 
+            
           </nav>
           <div className={s.centerblock}>
             <Search/>
             <Filter/> 
+
+           
 
             <div className="App-layout">
         <NavBar

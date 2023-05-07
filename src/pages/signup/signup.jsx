@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Mytrack = () => {
+export const Signup = () => {
     return (
         <div>
-            <h1>My track-list</h1>
+            <h1>Registration</h1>
         </div>
     )
 }
