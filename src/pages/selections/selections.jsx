@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Collections = () => {
+export const Selections = () => {
     return (
         <div>
-            <h1>Collections</h1>
+            <h1>Selections</h1>
         </div>
     )
 }

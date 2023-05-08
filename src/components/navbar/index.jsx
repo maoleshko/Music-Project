@@ -24,46 +24,32 @@ export const NavBar = ({ user, onAuthButtonClick }) => {
               Main
              </NavLink>
            </li>
-           
+
            <li>
              
              <NavLink
-              to="/account"
+              to="/registration"
               className={({ isActive }) =>
                 cn("App-link", {
                   [activeClassName]: isActive,
                 })
               }
             >
-              Account
+              Registration
              </NavLink>
            </li>
 
            <li>
              
              <NavLink
-              to="/mytrack"
+              to="/selections"
               className={({ isActive }) =>
                 cn("App-link", {
                   [activeClassName]: isActive,
                 })
               }
             >
-              My track
-             </NavLink>
-           </li>
-
-           <li>
-             
-             <NavLink
-              to="/collections"
-              className={({ isActive }) =>
-                cn("App-link", {
-                  [activeClassName]: isActive,
-                })
-              }
-            >
-              Collections
+              Selections
              </NavLink>
            </li>
 
@@ -74,7 +60,7 @@ export const NavBar = ({ user, onAuthButtonClick }) => {
        </nav>
 
        <button onClick={onAuthButtonClick}>
-        {user ? "Sign out" : "Sign in"}
+        {user ? "Выйти" : "Войти"}
        </button>
      </div>
   );
