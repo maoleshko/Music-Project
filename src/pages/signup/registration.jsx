@@ -3,7 +3,7 @@ import s from './signup.module.css';
 
 export const Registration = () => {
     return (            
-        <div>
+        <div className={s.register_form}>
         <div className={s.container}>
             <div className={s.logo}></div>
            
@@ -11,7 +11,7 @@ export const Registration = () => {
         <input type="text" id="username" placeholder='Логин' />
 
         <input type="password" id="password" placeholder='Пароль' />
-        <input type="password" id="password" placeholder='Повторите пароль' />     
+        <input type="password" id="repeat-password" placeholder='Повторите пароль' />     
         
         <div className={s.btn_box}>
           <button className={s.btn_reg_reg} type="submit">Зарегистрироваться</button>

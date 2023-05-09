@@ -1,15 +1,15 @@
 import { NavLink } from "react-router-dom";
 import cn from "classnames";
 import React from 'react';
+import s from './navbar.module.css'
 
-
-export const NavBar = ({ user, onAuthButtonClick }) => {
+export const NavBar = () => {
   const activeClassName = "underline";
 
   return (
     <div>
        <nav>
-         <ul className="NavBar__list">
+         <ul className={s.NavBar_list}>
 
          <li>
              
@@ -21,7 +21,7 @@ export const NavBar = ({ user, onAuthButtonClick }) => {
                 })
               }
             >
-              Main
+              Главная
              </NavLink>
            </li>
 
@@ -35,23 +35,10 @@ export const NavBar = ({ user, onAuthButtonClick }) => {
                 })
               }
             >
-              Login
+              Войти
              </NavLink>
            </li>
 
-           <li>
-             
-             <NavLink
-              to="/registration"
-              className={({ isActive }) =>
-                cn("App-link", {
-                  [activeClassName]: isActive,
-                })
-              }
-            >
-              Registration
-             </NavLink>
-           </li>
 
            <li>
              
@@ -63,7 +50,7 @@ export const NavBar = ({ user, onAuthButtonClick }) => {
                 })
               }
             >
-              Selections
+              Мои треки
              </NavLink>
            </li>
 
@@ -72,10 +59,6 @@ export const NavBar = ({ user, onAuthButtonClick }) => {
 
          </ul>
        </nav>
-
-       <button onClick={onAuthButtonClick}>
-        {user ? "Выйти" : "Войти"}
-       </button>
      </div>
   );
 };

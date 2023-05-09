@@ -1,7 +1,28 @@
 import React from 'react';
+import { useState } from 'react';
+
 import s from './signup.module.css';
 
 export const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+ 
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  console.log(username, password)
+
+  const onSubmit = (event) => {
+    event.preventDefault(); // Отменяем стандартное поведение формы
+  };
+
+
   const taketoken  = () => {
     // Создаем токен
     const token = "any_token_value";
@@ -13,19 +34,32 @@ export const Login = () => {
     window.location.href = "/";
   }
     return (
-      <div>
+      <div className={s.login_form}>
          
          <div className={s.container}>
             <div className={s.logo}></div>
            
-      <form >
+      <form onSubmit={onSubmit}>
         
-        <input type="text" id="username" placeholder='Логин' />
-        <input type="password" id="password" placeholder='Пароль' />
+        <input 
+        type="text" 
+        id="username" 
+        placeholder='Логин'
+        value={username} 
+        onChange={handleUsernameChange}
+        />
+        <input 
+        type="password" 
+        id="password" 
+        placeholder='Пароль' 
+        value={password} 
+        onChange={handlePasswordChange}
+        />
         
         <div className={s.btn_box}>
-          <button className={s.btn_sign} type="submit" onClick={taketoken}>Войти</button>
-          <button className={s.btn_reg} type="submit">Зарегистрироваться</button>
+          <button className={s.btn_sign} type="text" onClick={taketoken}>Войти</button>
+          <button className={s.btn_reg} type="text">Зарегистрироваться</button>
+        
         </div>
         
       </form>
