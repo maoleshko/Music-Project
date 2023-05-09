@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import s from './signup.module.css';
 
@@ -21,6 +22,11 @@ export const Login = () => {
   const onSubmit = (event) => {
     event.preventDefault(); // Отменяем стандартное поведение формы
   };
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    Navigate('/registration')
+  }
 
 
   const taketoken  = () => {
@@ -58,7 +64,7 @@ export const Login = () => {
         
         <div className={s.btn_box}>
           <button className={s.btn_sign} type="text" onClick={taketoken}>Войти</button>
-          <button className={s.btn_reg} type="text">Зарегистрироваться</button>
+          <button className={s.btn_reg} type="text" onClick={handleRegister}>Зарегистрироваться</button>
         
         </div>
         
