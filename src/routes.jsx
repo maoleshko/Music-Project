@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useState } from 'react';
 import {Routes, Route} from "react-router-dom"
 import {Login} from './pages/signup/login'
 import {Registration} from './pages/signup/registration'
@@ -9,7 +9,9 @@ import { Main } from './pages/main/main';
 import {Selections} from './pages/selections/selections'
 
 
-export const AppRoutes = ({token, setToken}) => {
+export const AppRoutes = () => {
+
+    const [token, setToken] = useState();
 
     return (
         <Routes>    

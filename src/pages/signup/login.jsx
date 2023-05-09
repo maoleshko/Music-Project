@@ -29,20 +29,21 @@ export const Login = ({setToken}) => {
     navigate('/registration')
   }
 
+  function handleLogin() {
 
-  const taketoken  = () => {
-    // Создаем токен
     const token = "any_token_value";
-
-    // Устанавливаем куки с токеном
     document.cookie = `token=${token}`;
 
-    setToken(token)
+    // const setToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
 
-    // Перенаправляем пользователя на главную страницу
-    // window.location.href = "/";
+    setToken(token)  // Установка куки с токеном
+
+     // Перенаправляем пользователя на главную страницу
+     // window.location.href = "/";
+     navigate('/');
   }
-    return (
+
+  return (
       <div className={s.login_form}>
          
          <div className={s.container}>
@@ -66,7 +67,7 @@ export const Login = ({setToken}) => {
         />
         
         <div className={s.btn_box}>
-          <button className={s.btn_sign} type="text" onClick={taketoken}>Войти</button>
+          <button className={s.btn_sign} type="text" onClick={handleLogin}>Войти</button>
           <button className={s.btn_reg} type="text" onClick={handleRegister}>Зарегистрироваться</button>
         
         </div>
