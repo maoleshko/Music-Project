@@ -28,6 +28,20 @@ export const NavBar = ({ user, onAuthButtonClick }) => {
            <li>
              
              <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                cn("App-link", {
+                  [activeClassName]: isActive,
+                })
+              }
+            >
+              Login
+             </NavLink>
+           </li>
+
+           <li>
+             
+             <NavLink
               to="/registration"
               className={({ isActive }) =>
                 cn("App-link", {

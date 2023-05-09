@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import s from './style/App.module.css';
 import {AppRoutes} from './routes'
-import { NavBar } from './components/navbar';
-import { Login } from './pages/login/login';
+import { NavBar } from './components/navbar/navbar';
 
 function App() {
 
@@ -23,8 +22,6 @@ function App() {
               />
               <AppRoutes user={user} />
             </div>
-          <Login/>
-          
           </div>
         </main>
         <footer/>

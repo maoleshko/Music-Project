@@ -1,0 +1,89 @@
+.logo {
+    background-image: url("../../img/logo-black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 113.33px;
+    height: 43px;
+    padding: 13px 0 13px 0;
+    background-color: transparent;
+    margin-top: 40px;
+}
+
+.container {
+    width: 366px;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'StratosSkyeng', sans-serif;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    align-items: center;
+}
+
+input {
+    width: 275px;
+    border: none;
+    border-bottom: 1px solid #D0CECE;
+    padding: 5px 5px;
+    margin-top:40px;
+}
+
+input::placeholder {
+    color: #E1E1E1;
+}
+
+.btn_box {
+    margin-top:60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+button,
+._btn {
+    cursor: pointer;
+    width: 278px;
+    height: 52px;
+    border-radius: 10px;
+    border: 0;
+    
+}
+
+.btn_sign {
+    color: #fff;
+    background: #580EA2;
+}
+
+.btn_reg {
+    color: #000;
+    background: #fff;
+    border: 2px solid #D0CECE
+}
+
+.btn_reg_reg {
+    color: #fff;
+    background: #580EA2;
+}
+
+.btn-text:hover {
+    border-color: #D9B6FF;
+    color: #D9B6FF;
+    cursor: pointer;
+}
+
+.btn-text:active {
+    border-color: #AD61FF;
+    color: #AD61FF;
+    cursor: pointer;
+}
