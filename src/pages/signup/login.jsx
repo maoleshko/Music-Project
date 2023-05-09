@@ -1,14 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import s from './signup.module.css';
 
-export const Login = () => {
+export const Login = ({setToken}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
- 
 
+  const navigate = useNavigate()
+ 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -25,7 +26,7 @@ export const Login = () => {
 
   const handleRegister = (event) => {
     event.preventDefault();
-    Navigate('/registration')
+    navigate('/registration')
   }
 
 
@@ -36,8 +37,10 @@ export const Login = () => {
     // Устанавливаем куки с токеном
     document.cookie = `token=${token}`;
 
+    setToken(token)
+
     // Перенаправляем пользователя на главную страницу
-    window.location.href = "/";
+    // window.location.href = "/";
   }
     return (
       <div className={s.login_form}>
