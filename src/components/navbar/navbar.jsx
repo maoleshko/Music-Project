@@ -43,7 +43,7 @@ export const NavBar = () => {
            <li>
              
              <NavLink
-              to="/selections"
+              to="/favorites"
               className={({ isActive }) =>
                 cn("App-link", {
                   [activeClassName]: isActive,

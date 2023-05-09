@@ -12,7 +12,7 @@ import BarPlayer from '../../components/barPlayer/barPlayer';
 
 export const Main = () => {
     const [menuActive, setMenuActive] = useState(false)
-    const item = [{id: 1, value:"Главное", href: "/"}, {id: 2,value:"Мои плейлист", href: "/mytrack"}, {id: 3,value:"Войти", href: "/signup"}]
+    const item = [{id: 1, value:"Главное", href: "/"}, {id: 2,value:"Мои плейлист", href: "/favorites"}, {id: 3,value:"Войти", href: "/login"}]
   
     return (      
     <div className={s.wrapper}>
@@ -35,8 +35,8 @@ export const Main = () => {
             <Personal/>
             <SidebarBlock/>
           </div>
+          <BarPlayer/>
         </main>
-      <BarPlayer/>
         <footer/>
       </div>
     </div> 

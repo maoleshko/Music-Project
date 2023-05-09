@@ -6,7 +6,7 @@ import {Registration} from './pages/signup/registration'
 import {NotFound} from './pages/not-found/notfound'
 import { ProtectedRoute } from './components/protected-route';
 import { Main } from './pages/main/main';
-import {Selections} from './pages/selections/selections'
+import {Favorites} from './pages/favorites/favorites'
 
 
 export const AppRoutes = () => {
@@ -18,9 +18,11 @@ export const AppRoutes = () => {
             <Route path="/login" element={<Login setToken={setToken}/> } />        
             <Route path="/registration" element={<Registration />} />
             
+            
             <Route element={<ProtectedRoute isAllowed={Boolean(token)} />}>
                 <Route path="/" element={<Main />} />
-                <Route path="/selections" element={<Selections />} />
+                <Route path="/favorites" element={<Favorites />} />
+               
                 {/* <Route path="/selections/playlist/:id" element={<Selections />} /> */}
     
             </Route>
