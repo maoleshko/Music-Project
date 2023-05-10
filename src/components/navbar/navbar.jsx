@@ -28,6 +28,20 @@ export const NavBar = () => {
            <li>
              
              <NavLink
+              to="/favorites"
+              className={({ isActive }) =>
+                cn("App-link", {
+                  [activeClassName]: isActive,
+                })
+              }
+            >
+              Мои треки
+             </NavLink>
+           </li>
+
+           <li>
+             
+             <NavLink
               to="/login"
               className={({ isActive }) =>
                 cn("App-link", {
@@ -40,19 +54,7 @@ export const NavBar = () => {
            </li>
 
 
-           <li>
-             
-             <NavLink
-              to="/favorites"
-              className={({ isActive }) =>
-                cn("App-link", {
-                  [activeClassName]: isActive,
-                })
-              }
-            >
-              Мои треки
-             </NavLink>
-           </li>
+          
 
 
            

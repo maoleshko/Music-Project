@@ -4,9 +4,32 @@ import playlist01 from '../../img/playlist01.png'
 import playlist02 from '../../img/playlist02.png'
 import playlist03 from '../../img/playlist03.png'
 import SkeletonLoading from '../skeleton/skeletonLoading';
+import { useNavigate } from "react-router-dom";
 
 
 function SidebarBlock() {
+
+    const navigate = useNavigate()
+
+    const handleClick = (id) => {
+        fetch(`https://painassasin.online/catalog/selection/${id}`)
+          .then(response => response.json())
+          .then(data => {
+            const playlist = data.tracks.map(track => ({
+              id: track.id,
+              title: track.title,
+              author: track.author,
+              album: track.album,
+              time: track.time
+            }));
+            console.log(playlist);
+          })
+          .catch(error => console.error(error));
+
+          navigate('/selections/playlist/:id');
+      };
+
+
   return (
     <div className={s.block}>
         <div className={s.list}>
@@ -14,21 +37,21 @@ function SidebarBlock() {
             <a className={s.link} href="#">
 
             <SkeletonLoading width={250} height={150}>
-                    <img className={s.img} src={playlist01} alt="day's playlist"/>
+                    <img onClick={() => handleClick(1)} className={s.img} src={playlist01} alt="day's playlist"/>
                 </SkeletonLoading>
             </a>
             </div>
             <div className={s.item}>
                 <a className={s.link} href="#">
                 <SkeletonLoading width={250} height={150}>
-                <img className={s.img} src={playlist02} alt="100 dance hit"/>
+                <img onClick={() => handleClick(1)} className={s.img} src={playlist02} alt="100 dance hit"/>
                 </SkeletonLoading>
                 </a>
             </div>
             <div className={s.item}>
                 <a className={s.link} href="#">
                 <SkeletonLoading width={250} height={150}>
-                <img className={s.img} src={playlist03} alt="indi-energy"/>
+                <img onClick={() => handleClick(1)} className={s.img} src={playlist03} alt="indi-energy"/>
                 </SkeletonLoading>
                 </a>
             </div>

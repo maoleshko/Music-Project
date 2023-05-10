@@ -4,7 +4,7 @@ import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
 
 
-const PlaylistItem = (props) => {
+const PlaylistItem = ({track}) => {
     return (
         <div className={s.track_list}>
             <div className={s.content}>
@@ -20,25 +20,25 @@ const PlaylistItem = (props) => {
                             </div>
                             <div className={s.title_text}>
                                 <SkeletonLoading width={330} height={25}>
-                                    <a className={s.title_link} href="http://">{props.track.title} <span className="track__title-span"></span></a>
+                                    <a className={s.title_link} href="http://">{track.title} <span className="track__title-span"></span></a>
                                 </SkeletonLoading>
                             </div>
                         </div>
                             <div className={s.author}>
                                 <SkeletonLoading width={280} height={25}>
-                                        <a className={s.author_link} href="http://">{props.track.author}</a>
+                                        <a className={s.author_link} href="http://">{track.author}</a>
                                 </SkeletonLoading>
                             </div>
                             <div className={s.album}>
                                 <SkeletonLoading width={310} height={25}>
-                                    <a className={s.album_link} href="http://">{props.track.album}</a>
+                                    <a className={s.album_link} href="http://">{track.album}</a>
                                 </SkeletonLoading>
                             </div>
                             <div className={s.time}>
                                     <svg className={s.time_svg} alt="time">
                                         <use xlinkHref={`${sprite}#icon-like`}></use>
                                     </svg>
-                                    <span className={s.time_text}>{props.track.time}</span>
+                                    <span className={s.time_text}>{track.time}</span>
                             </div>
                     </div>
                 </div>
