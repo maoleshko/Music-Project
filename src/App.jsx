@@ -3,7 +3,10 @@ import s from './style/App.module.css';
 import {AppRoutes} from './routes'
 import Menu from './components/burgerMenu/menu';
 
+
 function App() {
+ 
+
   const [menuActive, setMenuActive] = useState(false)
   
     return (      

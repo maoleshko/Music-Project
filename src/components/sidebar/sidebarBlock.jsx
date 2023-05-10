@@ -12,22 +12,25 @@ function SidebarBlock() {
     const navigate = useNavigate()
 
     const handleClick = (id) => {
-        fetch(`https://painassasin.online/catalog/selection/${id}`)
-          .then(response => response.json())
-          .then(data => {
-            const playlist = data.tracks.map(track => ({
-              id: track.id,
-              title: track.title,
-              author: track.author,
-              album: track.album,
-              time: track.time
-            }));
-            console.log(playlist);
-          })
-          .catch(error => console.error(error));
+            fetch(`https://painassasin.online/catalog/selection/${id}`)
+              .then(response => response.json())
+              .then(data => console.log(data))
+              .catch(error => console.error(error));
+              console.log(id);
 
-          navigate('/selections/playlist/:id');
-      };
+              navigate(`/selection/playlist/${id}`);
+          };
+              
+    
+          
+    
+
+    // const handleClick = (id) => {
+    //     fetch(`https://painassasin.online/catalog/selection/${id}`)
+    //       .then(response => response.json())
+    //       .then(data => console.log(data))
+    //       .catch(error => console.error(error));
+    //   };
 
 
   return (
@@ -44,14 +47,14 @@ function SidebarBlock() {
             <div className={s.item}>
                 <a className={s.link} href="#">
                 <SkeletonLoading width={250} height={150}>
-                <img onClick={() => handleClick(1)} className={s.img} src={playlist02} alt="100 dance hit"/>
+                <img onClick={() => handleClick(2)} className={s.img} src={playlist02} alt="100 dance hit"/>
                 </SkeletonLoading>
                 </a>
             </div>
             <div className={s.item}>
                 <a className={s.link} href="#">
                 <SkeletonLoading width={250} height={150}>
-                <img onClick={() => handleClick(1)} className={s.img} src={playlist03} alt="indi-energy"/>
+                <img onClick={() => handleClick(3)} className={s.img} src={playlist03} alt="indi-energy"/>
                 </SkeletonLoading>
                 </a>
             </div>
