@@ -34,12 +34,9 @@ export const Login = ({setToken}) => {
     const token = "any_token_value";
     document.cookie = `token=${token}`;
 
-    // const setToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
-
     setToken(token)  // Установка куки с токеном
 
      // Перенаправляем пользователя на главную страницу
-     // window.location.href = "/";
      navigate('/');
   }
 

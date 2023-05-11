@@ -18,15 +18,14 @@ export const AppRoutes = () => {
         <Routes>    
             <Route path="/login" element={<Login setToken={setToken}/> } />        
             <Route path="/registration" element={<Registration />} />
-            
+            <Route path="*" element={<NotFound />} />
             
             <Route element={<ProtectedRoute isAllowed={Boolean(token)} />}>
                 <Route path="/" element={<Main />} />
                 <Route path="/favorites" element={<Favorites />} />
                 <Route path="/selection/playlist/:id" element={<Selection />} />
-     
             </Route>
-            <Route path="*" element={<NotFound />} />
+            
         </Routes>
     )
 }
