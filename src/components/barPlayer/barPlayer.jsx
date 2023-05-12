@@ -2,24 +2,56 @@ import React from 'react';
 import s from './barPlayer.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
+import  { useState, useEffect } from 'react';
 
 function BarPlayer() {
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [audio] = useState(new Audio("/Bobby_Marleni_-_Dropin.mp3")); // путь к скаченному треку
+    const [position, setPosition] = useState(0);
+
+    const togglePlay = () => {
+        if (!isPlaying) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+        setIsPlaying(!isPlaying);
+      };
     
-    const audio = new Audio("/Bobby_Marleni_-_Dropin.mp3");
-   
-
-    function handlePlay() {
-        audio.play();
-      }
-
-      function handlePause() {
+      const stop = () => {
         audio.pause();
-      }
-
+        audio.currentTime = 0;
+        setIsPlaying(false);
+      };
+    
+      const updateTime = () => {
+        const newPosition = (audio.currentTime / audio.duration) * 100;
+        setPosition(newPosition);
+      };
+    
+      useEffect(() => {
+        const interval = setInterval(updateTime, 500);
+        return () => clearInterval(interval);
+      }, [isPlaying]);
+    
   return (
     <div className={s.bar}>
         <div>
-        <button onClick={handlePause}>Stop</button>
+        <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
+      <button onClick={stop}>Stop</button>
+      <input
+        type="range"
+        min={0}
+        max={100}
+        value={position}
+        onChange={(e) => {
+          const newPosition = e.target.value;
+          const newTime = (newPosition / 100) * audio.duration;
+          audio.currentTime = newTime;
+          setPosition(newPosition);
+        }}
+      />
         </div>
                 <div className={s.bar__content}> 
                     <div className={s.bar__player_progress}></div>
@@ -32,7 +64,7 @@ function BarPlayer() {
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_play}>
-                                    <svg onClick={handlePlay} className={s.player__btn_play_svg} alt="play">
+                                    <svg className={s.player__btn_play_svg} alt="play">
                                         <use xlinkHref={`${sprite}#icon-play`}></use>
                                     </svg>
                                 </div>
