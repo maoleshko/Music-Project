@@ -3,10 +3,24 @@ import s from './barPlayer.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
 
-
 function BarPlayer() {
+    
+    const audio = new Audio("/Bobby_Marleni_-_Dropin.mp3");
+   
+
+    function handlePlay() {
+        audio.play();
+      }
+
+      function handlePause() {
+        audio.pause();
+      }
+
   return (
     <div className={s.bar}>
+        <div>
+        <button onClick={handlePause}>Stop</button>
+        </div>
                 <div className={s.bar__content}> 
                     <div className={s.bar__player_progress}></div>
                     <div className={s.bar__player_block}>
@@ -18,7 +32,7 @@ function BarPlayer() {
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_play}>
-                                    <svg className={s.player__btn_play_svg} alt="play">
+                                    <svg onClick={handlePlay} className={s.player__btn_play_svg} alt="play">
                                         <use xlinkHref={`${sprite}#icon-play`}></use>
                                     </svg>
                                 </div>

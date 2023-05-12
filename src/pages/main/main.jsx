@@ -33,7 +33,7 @@ export const Main = () => {
             <SidebarBlock/>
           </div>
         </main>
-          <BarPlayer/>
+        <BarPlayer/>
       </div>
     )
 }
