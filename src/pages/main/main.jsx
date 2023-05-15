@@ -8,6 +8,7 @@ import Personal from '../../components/personal/personal';
 import SidebarBlock from '../../components/sidebar/sidebarBlock';
 import Menu from '../../components/burgerMenu/menu';
 import BarPlayer from '../../components/barPlayer/barPlayer';
+import Player from '../../components/barPlayer/barPlayer'
 
 
 export const Main = () => {
@@ -33,6 +34,7 @@ export const Main = () => {
             <SidebarBlock/>
           </div>
         </main>
+        <Player/>
         <BarPlayer/>
       </div>
     )

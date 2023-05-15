@@ -2,7 +2,9 @@ import React from 'react';
 import s from './barPlayer.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
+// import AudioPlayer from '../burgerMenu/audioPlayer';
 import  { useState, useEffect } from 'react';
+
 
 function BarPlayer() {
 
@@ -18,13 +20,7 @@ function BarPlayer() {
         }
         setIsPlaying(!isPlaying);
       };
-    
-      const stop = () => {
-        audio.pause();
-        audio.currentTime = 0;
-        setIsPlaying(false);
-      };
-    
+        
       const updateTime = () => {
         const newPosition = (audio.currentTime / audio.duration) * 100;
         setPosition(newPosition);
@@ -34,12 +30,14 @@ function BarPlayer() {
         const interval = setInterval(updateTime, 500);
         return () => clearInterval(interval);
       }, [isPlaying]);
-    
+
+      
+
   return (
+    
+
     <div className={s.bar}>
-        <div>
-        <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
-      <button onClick={stop}>Stop</button>
+         <div>
       <input
         type="range"
         min={0}
@@ -52,6 +50,7 @@ function BarPlayer() {
           setPosition(newPosition);
         }}
       />
+        
         </div>
                 <div className={s.bar__content}> 
                     <div className={s.bar__player_progress}></div>
@@ -59,12 +58,12 @@ function BarPlayer() {
                         <div className={s.bar__player}>
                             <div className={s.player__controls}>
                                 <div className={s.player__btn_prev}>
-                                    <svg className={s.player__btn_prev_svg} alt="prev">
+                                    <svg className={s.player__btn_prev_svg} alt="prev" >
                                         <use xlinkHref={`${sprite}#icon-prev`}></use>
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_play}>
-                                    <svg className={s.player__btn_play_svg} alt="play">
+                                    <svg className={s.player__btn_play_svg} alt="play" onClick={togglePlay} >
                                         <use xlinkHref={`${sprite}#icon-play`}></use>
                                     </svg>
                                 </div>
