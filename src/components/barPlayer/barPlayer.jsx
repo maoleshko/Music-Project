@@ -65,8 +65,8 @@ function BarPlayer() {
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_play}>
-                                <svg className={s.player__btn_play_svg} alt= "play" onClick={() => setIsPlaying(!isPlaying)}> 
-                                    <use xlinkHref={`{sprite}#icon-${icon}`}></use>
+                                <svg className={s.player__btn_play_svg} alt="play" onClick={() => setIsPlaying(!isPlaying)}> 
+                                        <use xlinkHref={`${sprite}#icon-${icon}`}></use>
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_next}>
