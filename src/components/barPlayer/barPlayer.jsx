@@ -39,23 +39,18 @@ function BarPlayer() {
         ref.current.currentTime = (divprogress / 100) * position.length;
     };
    
-    console.log(position);
-
   return (
     <div className={s.bar}>
         <div>
-        <audio ref={ref} src={src} onTimeUpdate={onPlaying} />
-        <div className={s.barPlayerProgress}>
-                <div className={s.navigationWrapper} onClick={checkWidth} ref={clickRef}>
-                    <div className={s.seekBar}>
-                    {/* style={{
-                            width: position
-                                ? `${position.progress + '%'}`
-                                : '',
-                        }} */}
-                    </div>
+            <audio ref={ref} src={src} onTimeUpdate={onPlaying} />
+                <div className={s.barPlayerProgress}>
+                        <div className={s.navigationWrapper} onClick={checkWidth} ref={clickRef}>
+                            
+                        <div className={s.seekBar} style={{ 
+                            width: position ? `${position.progress}%` : '', 
+                        }}></div>
+                        </div>
                 </div>
-        </div>
         </div>
          <div className={s.bar__content}> 
                     <div className={s.bar__player_progress}></div>
