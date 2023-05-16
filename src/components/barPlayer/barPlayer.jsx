@@ -14,6 +14,8 @@ function BarPlayer() {
     const src = '/Bobby_Marleni_-_Dropin.mp3';
     const clickRef = useRef();
 
+    const icon = isPlaying ? "pause" : "play"
+
     useEffect(() => {
         if (isPlaying) {
             ref.current.play();
@@ -63,8 +65,8 @@ function BarPlayer() {
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_play}>
-                                <svg className={isPlaying ? s.player__btn_play_svg : s.player__btn_play_svg} alt={isPlaying ? "pause" : "play"} onClick={() => setIsPlaying(!isPlaying)}> 
-                                        <use xlinkHref={`${sprite}#icon-play`}></use>
+                                <svg className={s.player__btn_play_svg} alt= "play" onClick={() => setIsPlaying(!isPlaying)}> 
+                                    <use xlinkHref={`{sprite}#icon-${icon}`}></use>
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_next}>
