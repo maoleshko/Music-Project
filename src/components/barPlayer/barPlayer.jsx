@@ -2,17 +2,45 @@ import React from 'react';
 import s from './barPlayer.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
-import AudioPlayer from '../burgerMenu/audioPlayer';
+import { useState, useRef, useEffect } from 'react';
 
 
 function BarPlayer() {
 
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [currentSong, setCurrentSong] = useState();
+
+    const ref = useRef(null);
+ 
+    const src = '/audio/Bobby_Marleni_-_Dropin.mp3';
+
+    useEffect(() => {
+        if (isPlaying) {
+            ref.current.play();
+        } else {
+            ref.current.pause();
+        }
+    }, [isPlaying]);
+
+    const onPlaying = () => {
+        const duration = ref.current.duration;
+        const ct = ref.current.currentTime;
+        setCurrentSong({
+            ...currentSong,
+            progress: (ct / duration) * 100,
+            length: duration,
+        });
+    };
+   
+    console.log(currentSong);
+
   return (
     <div className={s.bar}>
-         <div>
-            <AudioPlayer src="/Bobby_Marleni_-_Dropin.mp3"/>
+        <div>
+        <audio ref={ref} src={src} onTimeUpdate={onPlaying} />
+       
         </div>
-                <div className={s.bar__content}> 
+         <div className={s.bar__content}> 
                     <div className={s.bar__player_progress}></div>
                     <div className={s.bar__player_block}>
                         <div className={s.bar__player}>
@@ -23,7 +51,7 @@ function BarPlayer() {
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_play}>
-                                    <svg className={s.player__btn_play_svg} alt="play">
+                                    <svg className={s.player__btn_play_svg} alt="play" onClick={() => setIsPlaying(!isPlaying)}>
                                         <use xlinkHref={`${sprite}#icon-play`}></use>
                                     </svg>
                                 </div>
