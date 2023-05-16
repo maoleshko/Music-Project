@@ -8,11 +8,11 @@ import { useState, useRef, useEffect } from 'react';
 function BarPlayer() {
 
     const [isPlaying, setIsPlaying] = useState(false);
-    const [currentSong, setCurrentSong] = useState();
+    const [position, setPosition] = useState();
 
     const ref = useRef(null);
- 
-    const src = '/audio/Bobby_Marleni_-_Dropin.mp3';
+    const src = '/Bobby_Marleni_-_Dropin.mp3';
+    const clickRef = useRef();
 
     useEffect(() => {
         if (isPlaying) {
@@ -25,20 +25,37 @@ function BarPlayer() {
     const onPlaying = () => {
         const duration = ref.current.duration;
         const ct = ref.current.currentTime;
-        setCurrentSong({
-            ...currentSong,
+        setPosition({
+            ...position,
             progress: (ct / duration) * 100,
             length: duration,
         });
     };
+
+    const checkWidth = (e) => {
+        let width = clickRef.current.clientWidth;
+        const offset = e.nativeEvent.offsetX;
+        const divprogress = (offset / width) * 100;
+        ref.current.currentTime = (divprogress / 100) * position.length;
+    };
    
-    console.log(currentSong);
+    console.log(position);
 
   return (
     <div className={s.bar}>
         <div>
         <audio ref={ref} src={src} onTimeUpdate={onPlaying} />
-       
+        <div className={s.barPlayerProgress}>
+                <div className={s.navigationWrapper} onClick={checkWidth} ref={clickRef}>
+                    <div className={s.seekBar}>
+                    {/* style={{
+                            width: position
+                                ? `${position.progress + '%'}`
+                                : '',
+                        }} */}
+                    </div>
+                </div>
+        </div>
         </div>
          <div className={s.bar__content}> 
                     <div className={s.bar__player_progress}></div>
@@ -51,7 +68,7 @@ function BarPlayer() {
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_play}>
-                                    <svg className={s.player__btn_play_svg} alt="play" onClick={() => setIsPlaying(!isPlaying)}>
+                                <svg className={isPlaying ? s.player__btn_play_svg : s.player__btn_play_svg} alt={isPlaying ? "pause" : "play"} onClick={() => setIsPlaying(!isPlaying)}> 
                                         <use xlinkHref={`${sprite}#icon-play`}></use>
                                     </svg>
                                 </div>
