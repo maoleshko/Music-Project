@@ -34,8 +34,8 @@
         <path d="M15 10L-1.01012e-06 0.47372L-1.84293e-06 19.5263L15 10Z" fill="#D9D9D9"/>
     </symbol>
     <symbol id="icon-pause" viewBox="0 0 32 32"  xmlns="http://www.w3.org/2000/svg">
-      <rect height="30" id="Rectangle" rx="1.5" width="3" x="11" y="0" fill="#D9D9D9"/>
-        <rect height="30" id="Rectangle" rx="1.5" width="3" x="0" y="0" fill="#D9D9D9"/>          
+      <path d="M224,435.8V76.1c0-6.7-5.4-12.1-12.2-12.1h-71.6c-6.8,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6   C218.6,448,224,442.6,224,435.8z" fill="#D9D9D9"/>
+        <path d="M371.8,64h-71.6c-6.7,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6c6.7,0,12.2-5.4,12.2-12.2V76.1   C384,69.4,378.6,64,371.8,64z" fill="#D9D9D9"/>          
     </symbol>
     <symbol id="icon-next" viewBox="0 0 16 14"  xmlns="http://www.w3.org/2000/svg">
         <path d="M15 2V12.5" stroke="white"/>
