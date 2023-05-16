@@ -1,46 +1,52 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 
-function AudioPlayer({ src }) {
+const AudioPlayer = ({ src }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
-    const audio = audioRef.current;
-    audio.addEventListener("timeupdate", handleTimeUpdate);
-    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-    return () => {
-      audio.removeEventListener("timeupdate", handleTimeUpdate);
-      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
-    };
-  }, []);
+    audioRef.current = new Audio(src);
+  }, [src]);
 
-  const handleTimeUpdate = () => {
-    setCurrentTime(audioRef.current.currentTime);
+  const handlePlay = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
   };
 
-  const handleLoadedMetadata = () => {
-    setDuration(audioRef.current.duration);
+  const [position, setPosition] = useState(0);
+
+  const updateTime = () => {
+    const newPosition = (audioRef.current.currentTime / audioRef.current.duration) * 100;
+    setPosition(newPosition);
   };
 
-  const handleSeek = (event) => {
-    const time = event.target.value;
-    audioRef.current.currentTime = time;
-    setCurrentTime(time);
-  };
+  useEffect(() => {
+    const interval = setInterval(updateTime, 500);
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
 
   return (
     <div>
-      <audio ref={audioRef} src={src} />
+      <button onClick={handlePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
       <input
         type="range"
-        min="0"
-        max={duration}
-        value={currentTime}
-        onChange={handleSeek}
+        min={0}
+        max={100}
+        value={position}
+        onChange={(e) => {
+          const newPosition = e.target.value;
+          const newTime = (newPosition / 100) * audioRef.current.duration;
+          audioRef.current.currentTime = newTime;
+          setPosition(newPosition);
+        }}
       />
     </div>
   );
-}
+};
 
 export default AudioPlayer;

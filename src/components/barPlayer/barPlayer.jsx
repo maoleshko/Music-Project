@@ -2,55 +2,15 @@ import React from 'react';
 import s from './barPlayer.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
-// import AudioPlayer from '../burgerMenu/audioPlayer';
-import  { useState, useEffect } from 'react';
+import AudioPlayer from '../burgerMenu/audioPlayer';
 
 
 function BarPlayer() {
 
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [audio] = useState(new Audio("/Bobby_Marleni_-_Dropin.mp3")); // путь к скаченному треку
-    const [position, setPosition] = useState(0);
-
-    const togglePlay = () => {
-        if (!isPlaying) {
-          audio.play();
-        } else {
-          audio.pause();
-        }
-        setIsPlaying(!isPlaying);
-      };
-        
-      const updateTime = () => {
-        const newPosition = (audio.currentTime / audio.duration) * 100;
-        setPosition(newPosition);
-      };
-    
-      useEffect(() => {
-        const interval = setInterval(updateTime, 500);
-        return () => clearInterval(interval);
-      }, [isPlaying]);
-
-      
-
   return (
-    
-
     <div className={s.bar}>
          <div>
-      <input
-        type="range"
-        min={0}
-        max={100}
-        value={position}
-        onChange={(e) => {
-          const newPosition = e.target.value;
-          const newTime = (newPosition / 100) * audio.duration;
-          audio.currentTime = newTime;
-          setPosition(newPosition);
-        }}
-      />
-        
+            <AudioPlayer src="/Bobby_Marleni_-_Dropin.mp3"/>
         </div>
                 <div className={s.bar__content}> 
                     <div className={s.bar__player_progress}></div>
@@ -63,7 +23,7 @@ function BarPlayer() {
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_play}>
-                                    <svg className={s.player__btn_play_svg} alt="play" onClick={togglePlay} >
+                                    <svg className={s.player__btn_play_svg} alt="play">
                                         <use xlinkHref={`${sprite}#icon-play`}></use>
                                     </svg>
                                 </div>
