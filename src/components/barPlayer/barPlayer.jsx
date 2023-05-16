@@ -44,18 +44,17 @@ function BarPlayer() {
   return (
     <div className={s.bar}>
         <div>
-            <audio ref={ref} src={src} onTimeUpdate={onPlaying} />
-                <div className={s.barPlayerProgress}>
-                        <div className={s.navigationWrapper} onClick={checkWidth} ref={clickRef}>
-                            
-                        <div className={s.seekBar} style={{ 
-                            width: position ? `${position.progress}%` : '', 
-                        }}></div>
-                        </div>
-                </div>
+            <audio ref={ref} src={src} onTimeUpdate={onPlaying} />                
         </div>
          <div className={s.bar__content}> 
-                    <div className={s.bar__player_progress}></div>
+            <div className={s.barPlayerProgress}>
+                            <div className={s.navigationWrapper} onClick={checkWidth} ref={clickRef}>
+                                
+                            <div className={s.seekBar} style={{ 
+                                width: position ? `${position.progress}%` : '', 
+                            }}></div>
+                            </div>
+                    </div>
                     <div className={s.bar__player_block}>
                         <div className={s.bar__player}>
                             <div className={s.player__controls}>
