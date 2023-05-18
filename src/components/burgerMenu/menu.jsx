@@ -12,12 +12,6 @@ import { NavBar } from '../navbar/navbar';
             <div className={s.nav__menu}>
                 <ul className={s.menu__list}>
                 <NavBar/>
-                    {/* { 
-                    item.map((item) => 
-                        <li className={s.menu__item} key={item.id}>
-                            <a href={item.href}>{item.value}</a>
-                        </li>
-                    )} */}
                 </ul>
             </div>
         </div>

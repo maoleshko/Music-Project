@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import cn from "classnames";
 import React from 'react';
 import s from './navbar.module.css'
+import { ThemeContext, themes } from '../../contexts/ThemeContext'
+import Toggle from '../toggle/toggler'
 
 export const NavBar = () => {
   const activeClassName = "underline";
@@ -60,6 +62,17 @@ export const NavBar = () => {
            
 
          </ul>
+         <ThemeContext.Consumer>
+    {({ theme, setTheme }) => (
+      <Toggle
+        onChange={() => {
+          if (theme === themes.light) setTheme(themes.dark)
+          if (theme === themes.dark) setTheme(themes.light)
+        }}
+        value={theme === themes.dark}
+      />
+    )}
+  </ThemeContext.Consumer>
        </nav>
      </div>
   );
