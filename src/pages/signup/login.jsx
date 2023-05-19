@@ -49,6 +49,7 @@ export const Login = ({setToken}) => {
       <form onSubmit={onSubmit}>
         
         <input 
+        className={s.login_input}
         type="text" 
         id="username" 
         placeholder='Логин'
@@ -56,6 +57,7 @@ export const Login = ({setToken}) => {
         onChange={handleUsernameChange}
         />
         <input 
+        className={s.login_input}
         type="password" 
         id="password" 
         placeholder='Пароль' 

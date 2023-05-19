@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import s from '../../style/App.module.css';
+import s from '../../style/style.module.css';
 import Search from '../../components/search/search';
 import Filter from '../../components/filter/filter';
 import CenterblockContent from '../../components/centerblock/centerblockContent';

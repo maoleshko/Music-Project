@@ -28,7 +28,7 @@
     width: 51px;
     height: 51px;
     padding: 16px;
-    background: #313131;
+    background: var(--track_play__image);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,6 @@
     width: 18px;
     height: 17px;
     fill: transparent;
-    stroke: #4E4E4E;
 }
     
 .title_link {
@@ -47,7 +46,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color:var(--color-basic-text);
 }
     
 .title_span {
@@ -69,7 +68,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: var(--color-basic-text);
     text-align: left;
 }
     

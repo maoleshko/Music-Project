@@ -54,26 +54,22 @@ export const NavBar = () => {
               Войти
              </NavLink>
            </li>
-
-
-          
-
-
-           
-
          </ul>
-         <ThemeContext.Consumer>
-    {({ theme, setTheme }) => (
-      <Toggle
-        onChange={() => {
-          if (theme === themes.light) setTheme(themes.dark)
-          if (theme === themes.dark) setTheme(themes.light)
-        }}
-        value={theme === themes.dark}
-      />
-    )}
-  </ThemeContext.Consumer>
-       </nav>
+         </nav>
+         <ThemeContext.Consumer> 
+  {({ theme, setTheme }) => ( 
+    <Toggle 
+      onChange={() => { 
+        if (theme === themes.light) setTheme(themes.dark) 
+        if (theme === themes.dark) setTheme(themes.light) 
+      }} 
+      value={theme === themes.dark} 
+    > 
+     
+    </Toggle> 
+  )} 
+</ThemeContext.Consumer> 
+       
      </div>
   );
 };
