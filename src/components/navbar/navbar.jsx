@@ -3,7 +3,8 @@ import cn from "classnames";
 import React from 'react';
 import s from './navbar.module.css'
 import { ThemeContext, themes } from '../../contexts/ThemeContext'
-import Toggle from '../toggle/toggler'
+import ThemeSwitch from '../themeSwitch/themeSwitch'
+
 
 export const NavBar = () => {
   const activeClassName = "underline";
@@ -58,15 +59,15 @@ export const NavBar = () => {
          </nav>
          <ThemeContext.Consumer> 
   {({ theme, setTheme }) => ( 
-    <Toggle 
+    <ThemeSwitch 
       onChange={() => { 
         if (theme === themes.light) setTheme(themes.dark) 
         if (theme === themes.dark) setTheme(themes.light) 
       }} 
       value={theme === themes.dark} 
-    > 
+    >
      
-    </Toggle> 
+    </ThemeSwitch> 
   )} 
 </ThemeContext.Consumer> 
        

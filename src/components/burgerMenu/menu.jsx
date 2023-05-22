@@ -2,7 +2,6 @@ import React from 'react';
 import s from './menu.module.css';
 import { NavBar } from '../navbar/navbar';
 
-// const Menu = ({item, active, setActive}) => {
 
     const Menu = ({active, setActive}) => {
     
