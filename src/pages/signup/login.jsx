@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import sprite from '../../img/icon/sprite.svg'
 
 import s from './signup.module.css';
 
@@ -44,7 +45,11 @@ export const Login = ({setToken}) => {
       <div className={s.login_form}>
          
          <div className={s.container}>
-            <div className={s.logo}></div>
+            <div className={s.logo}>
+            <svg className={s.logo_svg} alt="logo" >
+              <use xlinkHref={`${sprite}#logo`}></use>
+            </svg> 
+            </div>
            
       <form onSubmit={onSubmit}>
         

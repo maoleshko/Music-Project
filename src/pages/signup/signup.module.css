@@ -3,14 +3,12 @@
     display: flex;
     justify-content: center;
 }
-.logo {
-    background-image: url("../../img/logo-black.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+.logo_svg {
+    
     width: 113.33px;
     height: 43px;
     padding: 13px 0 13px 0;
-    background-color: transparent;
+    fill: var(--color-basic-text);
 }
 
 .container {

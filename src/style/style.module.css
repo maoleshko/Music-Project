@@ -7,9 +7,6 @@
     --color-player-btn: #b1b1b1;
     --bg-progress-line: #d9d9d9;
     --track_play__image:#F6F4F4;
-    
-    
-    --test:(#cf0469);
   
   }
   
@@ -22,7 +19,7 @@
     --color-player-btn: #d9d9d9;
     --bg-progress-line: #2e2e2e;
     --track_play__image:#313131;
-    --test:(#cf0469);
+
   }
 
 * {
@@ -74,7 +71,7 @@ body {
     width: 100%;
     min-height: 100%;
     overflow: hidden;
-    background:var(--background-color);
+    background:#181818;
 }
 
 .container {
@@ -123,10 +120,7 @@ body {
     flex-direction: column;
 }
 
-.logo {
-    background-image: url("../img/logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+.logo_svg {
     margin-top: 10px; 
     width: 113.33px;
     height: 43px;

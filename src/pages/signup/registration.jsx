@@ -1,11 +1,16 @@
 import React from 'react';
 import s from './signup.module.css';
+import sprite from '../../img/icon/sprite.svg'
 
 export const Registration = () => {
     return (            
         <div className={s.register_form}>
         <div className={s.container}>
-            <div className={s.logo}></div>
+            <div className={s.logo}>
+              <svg className={s.logo_svg} alt="logo" >
+                <use xlinkHref={`${sprite}#logo`}></use>
+              </svg> 
+            </div>
            
       <form >
         <input type="text" id="username" placeholder='Логин' />
