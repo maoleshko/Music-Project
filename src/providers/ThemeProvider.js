@@ -9,6 +9,7 @@ const getTheme = () => {
   if (userMedia.matches) return themes.light
 
   return themes.dark
+  
 }
 
 const ThemeProvider = ({ children }) => {
@@ -18,6 +19,8 @@ const ThemeProvider = ({ children }) => {
     document.documentElement.dataset.theme = theme
     localStorage.setItem('theme', theme)
   }, [ theme ])
+
+ 
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

@@ -7,6 +7,7 @@ import CenterblockContent from '../../components/centerblock/centerblockContent'
 import Personal from '../../components/personal/personal';
 import SidebarBlock from '../../components/sidebar/sidebarBlock';
 import Menu from '../../components/burgerMenu/menu';
+import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
 
 
@@ -17,6 +18,7 @@ export const Main = () => {
       <div className={s.container}>
         <main className={s.main}>
           <nav className={s.nav}>
+            <Logo/>
             <div className={s.burger_btn} onClick={() => setMenuActive(!menuActive)}>
               <span/>
             </div>

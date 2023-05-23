@@ -128,7 +128,9 @@ function BarPlayer() {
                                     </svg>
                                 </div>
                                 <div className={s.volume__progress}>
-                                    <input className={s.volume__progress_line} type="range" name="range"/>
+                                    <input className={s.volume__progress_line} 
+                                    type="range" 
+                                    name="range"/>
                                 </div>
                                 
                            </div>

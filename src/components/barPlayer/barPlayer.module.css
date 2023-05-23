@@ -80,6 +80,7 @@
     .player__btn_prev_svg {
         width: 15px;
         height: 14px;
+        fill: var( --color-player-btn)
     }
 
     .player__btn_play {
@@ -90,6 +91,13 @@
     .player__btn_play_svg {
         width: 22px;
         height: 20px;
+        fill: var( --color-player-btn)
+    }
+
+    .player__btn_pause_svg {
+        width: 22px;
+        height: 20px;
+        fill: var( --color-player-btn)
     }
 
     .player__btn_next {
@@ -99,8 +107,7 @@
     .player__btn_next_svg {
         width: 15px;
         height: 14px;
-        fill: inherit;
-        stroke:var(--color-player-btn);
+        fill:var(--color-player-btn);
     }
 
     .player__btn_repeat {
@@ -236,6 +243,7 @@
         width: 13px;
         height: 18px;
         fill: transparent;
+        stroke:var(--color-player-btn);
 
     }
 
@@ -246,5 +254,4 @@
 
     .volume__progress_line {
         width: 109px;
-        color:var(--bg-progress-line);
-    }
+           }
