@@ -4,11 +4,9 @@
     justify-content: center;
 }
 .logo_svg {
-    
-    width: 113.33px;
+    width: 114px;
     height: 43px;
-    padding: 13px 0 13px 0;
-    fill: var(--color-basic-text);
+    margin-top: 10px;
 }
 
 .container {

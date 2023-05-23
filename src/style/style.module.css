@@ -120,15 +120,6 @@ body {
     flex-direction: column;
 }
 
-.logo_svg {
-    margin-top: 10px; 
-    width: 113.33px;
-    height: 43px;
-    padding: 13px 0 13px 0;
-    background-color: transparent;
-    padding:20px;
-}
-
 .burger_btn {
     width: 20px;
     height: 20px;

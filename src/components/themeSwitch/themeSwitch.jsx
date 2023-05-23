@@ -7,13 +7,26 @@ const ThemeSwitch = ({ value, onChange }) => {
   const icon = value ? "dark" : "light"; // определяем иконку в зависимости от значения value
 
   return (
-    <svg 
-    className={s.btn_theme_svg}
-      alt="theme"
-      onClick={onChange}
-    >
-      <use xlinkHref={`${sprite}#theme-${icon}`} />
-    </svg>
+    <div>
+        <div className={s.logo}>
+            <svg className={s.logo_svg} alt="logo" >
+              <use xlinkHref={`${sprite}#logo-${icon}`}></use>
+            </svg> 
+            </div>
+
+            <div className={s.btn_theme_svg}>
+            <svg 
+              className={s.btn_theme_svg}
+                alt="theme"
+                onClick={onChange}
+              >
+                <use xlinkHref={`${sprite}#theme-${icon}`} />
+              </svg>
+            </div>
+
+
+    </div>
+    
   );
 };
 

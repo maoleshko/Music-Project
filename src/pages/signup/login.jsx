@@ -47,7 +47,7 @@ export const Login = ({setToken}) => {
          <div className={s.container}>
             <div className={s.logo}>
             <svg className={s.logo_svg} alt="logo" >
-              <use xlinkHref={`${sprite}#logo`}></use>
+              <use xlinkHref={`${sprite}#logo-light`}></use>
             </svg> 
             </div>
            

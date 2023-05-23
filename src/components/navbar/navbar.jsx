@@ -2,8 +2,7 @@ import { NavLink } from "react-router-dom";
 import cn from "classnames";
 import React from 'react';
 import s from './navbar.module.css'
-import { ThemeContext, themes } from '../../contexts/ThemeContext'
-import ThemeSwitch from '../themeSwitch/themeSwitch'
+
 
 
 export const NavBar = () => {
@@ -57,19 +56,7 @@ export const NavBar = () => {
            </li>
          </ul>
          </nav>
-         <ThemeContext.Consumer> 
-  {({ theme, setTheme }) => ( 
-    <ThemeSwitch 
-      onChange={() => { 
-        if (theme === themes.light) setTheme(themes.dark) 
-        if (theme === themes.dark) setTheme(themes.light) 
-      }} 
-      value={theme === themes.dark} 
-    >
-     
-    </ThemeSwitch> 
-  )} 
-</ThemeContext.Consumer> 
+         
        
      </div>
   );
