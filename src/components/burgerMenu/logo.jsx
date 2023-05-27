@@ -1,18 +1,20 @@
 import React from 'react';
 import s from './menu.module.css';
-import sprite from '../../img/icon/sprite.svg'
+import Logo_light from '../../img/icon/logo-light.svg';
+import Logo_dark from '../../img/icon/logo-dark.svg';
+import { useTheme } from './useTheme';
 
 function Logo() {
+    const theme = useTheme();
 
-    const icon = document.documentElement.dataset.theme;
-    
+
   return (
     <div className={s.logo}>
-    <svg className={s.logo_svg} alt="logo" >
-    <use xlinkHref={`${sprite}#logo-${icon}`}></use>
-    </svg> 
+    <img className={s.logo_svg}
+         src={ theme.theme ==='light' ? Logo_light : Logo_dark } alt="logo">
+    </img>
 </div>
-    
+
     )
 }
 
