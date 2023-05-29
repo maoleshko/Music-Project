@@ -44,7 +44,7 @@ const Appapp = () => {
   
   return (
       <div className={s.centerblock__filter}>
-          <h2 className={s.h2}>Треки</h2> 
+          
           <div className={s.filter}>
       
         <div className={s.filter__title}>Искать по:</div>

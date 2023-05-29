@@ -26,6 +26,7 @@ export const Main = () => {
           </nav>    
           <div className={s.centerblock}>
             <Search/>
+            <h2 className={s.h2}>Треки</h2> 
             <Filter/>        
             <CenterblockContent/>
           </div>

@@ -21,7 +21,7 @@ function Playlist() {
               title: track.name,
               author: track.author,
               album: track.album,
-              time: track.duration_in_seconds
+              time: (track.duration_in_seconds/60).toFixed(2)
 
             }}
           />
