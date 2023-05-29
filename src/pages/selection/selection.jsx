@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CenterblockContent from '../../components/centerblock/centerblockContent'
+// import CenterblockContent from '../../components/centerblock/centerblockContent'
 import Menu from '../../components/burgerMenu/menu';
 import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
@@ -7,6 +7,7 @@ import Search from '../../components/search/search';
 import Personal from '../../components/personal/personal';
 import SidebarBlock from '../../components/sidebar/sidebarBlock';
 import Filter from '../../components/filter/filter';
+import PlaylistsPage from '../../components/playlist/playlistPage'
 import s from '../../style/style.module.css';
 
 export const Selection = () => {
@@ -26,7 +27,8 @@ export const Selection = () => {
             <Search/>
             <h2 className={s.h2}>Подборки</h2> 
             <Filter/> 
-            <CenterblockContent/>
+            {/* <CenterblockContent/> */}
+            <PlaylistsPage/>
           </div>
           <div className={s.sidebar}>
             <Personal/>
