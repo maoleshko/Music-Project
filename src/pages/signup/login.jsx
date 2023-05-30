@@ -5,20 +5,20 @@ import sprite from '../../img/icon/sprite.svg'
 import s from './signup.module.css';
 
 export const Login = ({setToken}) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate()
  
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
-  console.log(username, password)
+  console.log(email, password)
 
   const onSubmit = (event) => {
     event.preventDefault(); // Отменяем стандартное поведение формы
@@ -55,10 +55,10 @@ export const Login = ({setToken}) => {
         <input 
         className={s.login_input}
         type="text" 
-        id="username" 
+        id="email" 
         placeholder='Логин'
-        value={username} 
-        onChange={handleUsernameChange}
+        value={email} 
+        onChange={handleEmailChange}
         />
         <input 
         className={s.login_input}

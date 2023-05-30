@@ -39,7 +39,7 @@ import { fetchTracks } from '../../store/actions/trackActions';
 const Playlist = () => {
   const tracks = useSelector((state) => state.tracks.tracks);
   const dispatch = useDispatch();
-  console.log(tracks)
+ 
 
   useEffect(() => {
     dispatch(fetchTracks());

@@ -1,18 +1,18 @@
 import axios from 'axios'
 
-const API_URL = 'https://painassasin.online/user/login/'
+const API_URL = 'https://painassasin.online/user/'
 
-export const registerUser = async (username, password) => {
-  const { data } = await axios.post(API_URL + 'register', {
-    username,
+export const registerUser = async (email, password) => {
+  const { data } = await axios.post(API_URL + 'signup', {
+    email,
     password
   })
   return data
 }
 
-export const loginUser = async (username, password) => {
+export const loginUser = async (email, password) => {
   const { data } = await axios.post(API_URL + 'login', {
-    username,
+    email,
     password
   })
   return data

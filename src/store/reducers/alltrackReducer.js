@@ -10,7 +10,7 @@ import {
     error: '',
   };
   
-  const trackReducer = (state = initialState, action) => {
+  const alltrackReducer = (state = initialState, action) => {
     switch (action.type) {
       case FETCH_TRACKS_REQUEST:
         return {
@@ -36,4 +36,4 @@ import {
     }
   };
   
-  export default trackReducer;
+  export default alltrackReducer;
