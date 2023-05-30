@@ -2,9 +2,7 @@ import {
     FETCH_PLAYLISTS_REQUEST,
     FETCH_PLAYLISTS_SUCCESS, 
     FETCH_PLAYLISTS_FAILURE
-} from "./types/playlist";
-
-
+} from "../actions/types/playlist";
 
 const initialState = {
     playlists: [],
@@ -24,3 +22,4 @@ const initialState = {
         return state;
     }
   };
+

@@ -5,8 +5,6 @@ import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
 import Search from '../../components/search/search';
 import Personal from '../../components/personal/personal';
-import SidebarBlock from '../../components/sidebar/sidebarBlock';
-import Filter from '../../components/filter/filter';
 import s from '../../style/style.module.css';
 // import CenterblockContent from '../../components/centerblock/centerblockContent';
 
@@ -32,12 +30,12 @@ fetch(`https://painassasin.online/catalog/selection/${id}`)
           <div className={s.centerblock}>
             <Search/>
             <h2 className={s.h2}>Избранное</h2> 
-            <Filter/> 
+            
             <CenterblockContent/>
           </div>
           <div className={s.sidebar}>
             <Personal/>
-            <SidebarBlock/>
+            
           </div>
         </main>
         <BarPlayer/>

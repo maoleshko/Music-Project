@@ -21,18 +21,6 @@ function SidebarBlock() {
               navigate(`/selection/playlist/${id}`);
           };
               
-    
-          
-    
-
-    // const handleClick = (id) => {
-    //     fetch(`https://painassasin.online/catalog/selection/${id}`)
-    //       .then(response => response.json())
-    //       .then(data => console.log(data))
-    //       .catch(error => console.error(error));
-    //   };
-
-
   return (
     <div className={s.block}>
         <div className={s.list}>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://painassasin.online/user/token/'
+const API_URL = 'https://painassasin.online/user/login/'
 
 export const registerUser = async (username, password) => {
   const { data } = await axios.post(API_URL + 'register', {
