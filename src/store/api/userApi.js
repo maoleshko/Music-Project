@@ -2,8 +2,9 @@ import axios from 'axios'
 
 const API_URL = 'https://painassasin.online/user/'
 
-export const registerUser = async (email, password) => {
-  const { data } = await axios.post(API_URL + 'signup', {
+export const registerUser = async (username, email, password) => {
+  const { data } = await axios.post(API_URL + 'signup/', {
+    username,
     email,
     password
   })
@@ -11,7 +12,7 @@ export const registerUser = async (email, password) => {
 }
 
 export const loginUser = async (email, password) => {
-  const { data } = await axios.post(API_URL + 'login', {
+  const { data } = await axios.post(API_URL +'login/', {
     email,
     password
   })

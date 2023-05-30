@@ -7,6 +7,7 @@ import { registerUserAction, loginUserAction } from '../../store/actions/userAct
 
 
 export const Registration = () => {
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isRegistered, setIsRegistered] = useState(true)
@@ -18,18 +19,25 @@ export const Registration = () => {
     if (isRegistered) {
       dispatch(loginUserAction(email, password))
     } else {
-      dispatch(registerUserAction(email, password))
+      dispatch(registerUserAction(username, email, password))
     }
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit">{isRegistered ? 'Войти' : 'Зарегистрироваться'}</button>
+      <input type="text"  placeholder='Логин' value={username} onChange={(e) => setUsername(e.target.value)} />
+      <input type="text" placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" placeholder='пароль' value={password} onChange={(e) => setPassword(e.target.value)} />
+      {/* <button type="submit" onClick={() => setIsRegistered(!isRegistered)}>Зарегистрироваться</button>
+      <button type="submit">Войти</button> */}
+
+      <button type="submit">{isRegistered ? 'Login' : 'Register'}</button>
       <button type="button" onClick={() => setIsRegistered(!isRegistered)}>
-        {isRegistered ? 'Зарегистрироваться' : 'Already registered?'}
+        {isRegistered ? 'Need to register?' : 'Already registered?'}
       </button>
+      {/* <button type="button" onClick={() => setIsRegistered(!isRegistered)}>
+        {isRegistered ? 'Зарегистрироваться' : 'Already registered?'}
+      </button> */}
     </form>
   )
     // return (            
