@@ -1,45 +1,31 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { registerUserAction, loginUserAction } from '../../store/actions/userAction'
+import { loginUserAction } from '../../store/actions/userAction'
 import sprite from '../../img/icon/sprite.svg'
 import s from './signup.module.css';
-import { useNavigate } from "react-router-dom";
 
-export const Login = ({setToken}) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [isRegistered, setIsRegistered] = useState(true)
 
-  const dispatch = useDispatch()
+export const Login = () => {
+    const [email, setEmail] = useState('');
+      const [password, setPassword] = useState('');
+      const dispatch = useDispatch();
 
-  const navigate = useNavigate()
+      const handleLogin = () => {
+          dispatch(loginUserAction(email, password))
+        };
+      
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (isRegistered) {
-      dispatch(loginUserAction(email, password))
-    } else {
-      dispatch(registerUserAction(email, password))
-    }
-  }
+const handleRegistration = () => {
+  // перенаправляем на форму регистрации
+  window.location.href = '/registration';
+};
 
-  function handleReg() {
+// const handleToken= () => {
 
-     // Перенаправляем пользователя на страницу регистрации
-     navigate('/registration');
-  }
-
-  function handleLogin() {
-
-    const token = "any_token_value";
-    document.cookie = `token=${token}`;
-
-    setToken(token)  // Установка куки с токеном
-
-     // Перенаправляем пользователя на главную страницу
-     navigate('/');
-  }
+//      window.location.href = '/';
+     
+//   }
   
   return (
       <div className={s.login_form}>
@@ -50,39 +36,35 @@ export const Login = ({setToken}) => {
             </svg> 
             </div>
            
-    <form onSubmit={handleSubmit}>
-      
-      <input 
-      className={s.login_input}
-      id="email" 
-      type="text" 
-      placeholder='Email'
-      value={email} 
-      onChange={(e) => setEmail(e.target.value)} 
-      />
-      <input 
-      className={s.login_input}
-      id="password"  
-      placeholder='Пароль'
-      type="password" 
-      value={password} 
-      onChange={(e) => setPassword(e.target.value)} 
-      />
-      
-        
-        <div className={s.btn_box}>
-        <button className={s.btn_login} type="submit">{isRegistered ? 'Войти' : 'Регистрация'}</button>
-        
-    
-      <button className={s.btn_reg} type="button"  onClick={handleReg}>Зарегистрироваться</button>
-      <button className={s.btn_sign} type="text" onClick={handleLogin}>Перейти на главную</button>
-      <button type="button" onClick={() => setIsRegistered(!isRegistered)}>
-        {isRegistered ? 'Need to register?' : 'Already registered?'}
-      </button>
-        </div>       
-    </form>
-  </div>
+            <form >
+              
+              <input 
+              className={s.login_input}
+              id="email" 
+              type="text" 
+              placeholder='Email'
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              />
+              <input 
+              className={s.login_input}
+              id="password"  
+              placeholder='Пароль'
+              type="password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              />
+                <div className={s.btn_box}>
+                
+                  <button className={s.btn_login} type="button" onClick={handleLogin}>Войти</button>
+                  <button className={s.btn_reg} type="button" onClick={handleRegistration}>Зарегистрироваться</button>             
+                  {/* <button className={s.btn_sign} type="text" onClick={handleToken}>Перейти на главную</button>
+     */}
+                </div>       
+            </form>
+        </div>
 </div>
         
     )
 }
+

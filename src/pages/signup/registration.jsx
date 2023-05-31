@@ -1,28 +1,29 @@
 import React from 'react';
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { registerUserAction, loginUserAction } from '../../store/actions/userAction'
+import axios from 'axios';
 import s from './signup.module.css';
 import sprite from '../../img/icon/sprite.svg'
 
 export const Registration = () => {
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const [isRegistered, setIsRegistered] = useState(true)
-  
-
-  const dispatch = useDispatch()
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (isRegistered) {
-      dispatch(loginUserAction(email, password))  
-    } else {
-      dispatch(registerUserAction(email, password))
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('https://painassasin.online/user/signup/', {
+        username,
+        email,
+        password,
+      });
+      console.log(response.data);
+      // перенаправление на страницу логина
+      window.location.href = '/login';
+    } catch (error) {
+      console.error(error);
     }
-  }
+  };
 
   return (
     <div>
@@ -33,45 +34,39 @@ export const Registration = () => {
               <use xlinkHref={`${sprite}#logo-light`}></use>
             </svg> 
             </div>
-
             <form onSubmit={handleSubmit}>
-
-            <input 
-            className={s.login_input}
-            id="username" 
-            type="text" 
-            placeholder='Username'
-            value={username} 
-            onChange={(e) => setUsername(e.target.value)} 
-            />
+     
+              <input 
+              className={s.login_input}
+              id="username" 
+              type="text" 
+              placeholder='Username'
+              value={username} 
+              onChange={(event) => setUsername(event.target.value)} 
+              />
+          
+              <input 
+              className={s.login_input}
+              id="email"
+              type="email" 
+              placeholder='email'
+              value={email} 
+              onChange={(event) => setEmail(event.target.value)} 
+              />
+            
+              <input 
+              className={s.login_input}
+              id="password"  
+              type="password"
+              placeholder='password' 
+              value={password} 
+              onChange={(event) => setPassword(event.target.value)} 
+              />
+            <div className={s.btn_box}>
+              <button className={s.btn_login} type="submit">Зарегистрироваться</button>
+            </div>
       
-            <input 
-            className={s.login_input}
-            id="email" 
-            type="text" 
-            placeholder='Email'
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            />
-            <input 
-            className={s.login_input}
-            id="password"  
-            placeholder='Пароль'
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            />
-    
-      
-      <div className={s.btn_box}>
-      <button className={s.btn_login} type="submit">{isRegistered ? 'Войти' : 'Регистрация'}</button>
-      <button type="button" onClick={() => setIsRegistered(!isRegistered)}>
-        {isRegistered ? 'Need to register?' : 'Already registered?'}
-      </button>
-      <button className={s.btn_reg} type="button" >Зарегистрироваться</button>
-      <button className={s.btn_sign} type="text" >Перейти на главную</button>
-      </div>       
-  </form>
+    </form>
     </div>
     </div>
     </div>
@@ -79,3 +74,6 @@ export const Registration = () => {
 }
 
 export default Registration;
+
+
+
