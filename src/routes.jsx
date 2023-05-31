@@ -7,7 +7,7 @@ import {NotFound} from './pages/not-found/notfound'
 import { ProtectedRoute } from './components/protected-route';
 import { Main } from './pages/main/main';
 import {Favorites} from './pages/favorites/favorites'
-import {Selection} from './pages/selection/selection'
+import {SelectionPage} from './pages/selection/selectionPage'
 
 
 export const AppRoutes = () => {
@@ -23,7 +23,7 @@ export const AppRoutes = () => {
             <Route element={<ProtectedRoute isAllowed={Boolean(token)} />}>
                 <Route path="/" element={<Main />} />
                 <Route path="/favorites" element={<Favorites />} />
-                <Route path="/selection/playlist/:id" element={<Selection />} />
+                <Route path="/selection/playlist/:id" element={<SelectionPage />} />
             </Route>
             
         </Routes>

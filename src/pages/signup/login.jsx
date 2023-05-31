@@ -19,11 +19,15 @@ export const Login = ({setToken}) => {
     e.preventDefault()
     if (isRegistered) {
       dispatch(loginUserAction(email, password))
-      
-
     } else {
       dispatch(registerUserAction(email, password))
     }
+  }
+
+  function handleReg() {
+
+     // Перенаправляем пользователя на страницу регистрации
+     navigate('/registration');
   }
 
   function handleLogin() {
@@ -68,12 +72,14 @@ export const Login = ({setToken}) => {
         
         <div className={s.btn_box}>
         <button className={s.btn_login} type="submit">{isRegistered ? 'Войти' : 'Регистрация'}</button>
-      <button className={s.btn_reg} type="button" onClick={() => setIsRegistered(!isRegistered)}>
-        {isRegistered ? 'Зарегистрироваться' : 'Уже Зарегистрированы?'}
-      </button>
-      <button className={s.btn_sign} type="text" onClick={handleLogin}>Перейти на главную</button>
-        </div>
         
+    
+      <button className={s.btn_reg} type="button"  onClick={handleReg}>Зарегистрироваться</button>
+      <button className={s.btn_sign} type="text" onClick={handleLogin}>Перейти на главную</button>
+      <button type="button" onClick={() => setIsRegistered(!isRegistered)}>
+        {isRegistered ? 'Need to register?' : 'Already registered?'}
+      </button>
+        </div>       
     </form>
   </div>
 </div>

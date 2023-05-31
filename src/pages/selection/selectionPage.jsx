@@ -8,7 +8,8 @@ import Personal from '../../components/personal/personal';
 // import PlaylistsPage from '../../components/playlist/playlistPage'
 import s from '../../style/style.module.css';
 
-export const Selection = () => {
+
+export const SelectionPage = () => {
     const [menuActive, setMenuActive] = useState(false)
 
    return (
@@ -24,9 +25,7 @@ export const Selection = () => {
           <div className={s.centerblock}>
             <Search/>
             <h2 className={s.h2}>Заголовок подборки</h2> 
-            
-            {/* <CenterblockContent/> */}
-            {/* <PlaylistsPage/> */}
+           
           </div>
           <div className={s.sidebar}>
             <Personal/>
