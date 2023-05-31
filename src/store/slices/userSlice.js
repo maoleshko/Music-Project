@@ -16,7 +16,7 @@ const userSlice = createSlice({
       state.isAuth = true
     },
     removeToken: (state) => {
-      state.token = ''
+      state.token = null
       state.isAuth = false
     }
   }
