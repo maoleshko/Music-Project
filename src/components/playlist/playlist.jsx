@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PlaylistItem from './playlistItem';
-import { fetchTracks } from '../../store/actions/AlltrackActions';
+import { fetchTracks } from '../../store/actions/creators/AlltrackActions';
 
 const Playlist = () => {
   const tracks = useSelector((state) => state.tracks.tracks);

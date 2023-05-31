@@ -1,15 +1,5 @@
-import { setToken } from '../slices/userSlice'
-import { registerUser } from '../api/userApi'
+import { setToken } from '../../slices/userSlice'
 import axios from 'axios';
-
-export const registerUserAction = (email, password) => async dispatch => {
-  try {
-    const { token } = await registerUser(email, password)
-    dispatch(setToken(token))
-  } catch (error) {
-    console.log(error)
-  }
-}
 
 export const loginUserAction = (email, password) => async dispatch => {
   try {
@@ -17,7 +7,7 @@ export const loginUserAction = (email, password) => async dispatch => {
       email,
       password
     });
-    const { token } = response.data.access;
+    const token = response.data.access;
     document.cookie = `access_token=${response.data.access}`;
     document.cookie = `refresh_token=${response.data.refresh}`;
     dispatch(setToken(token));

@@ -2,7 +2,7 @@ import {
     FETCH_TRACKS_REQUEST,
     FETCH_TRACKS_SUCCESS,
     FETCH_TRACKS_FAILURE,
-  } from '../actions/AlltrackActions';
+  } from '../actions/creators/AlltrackActions';
   
   const initialState = {
     loading: false,

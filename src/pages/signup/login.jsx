@@ -1,19 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { loginUserAction } from '../../store/actions/userAction'
+import { loginUserAction } from '../../store/actions/creators/userAction'
 import sprite from '../../img/icon/sprite.svg'
 import s from './signup.module.css';
 
 
 export const Login = () => {
-    const [email, setEmail] = useState('');
-      const [password, setPassword] = useState('');
-      const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-      const handleLogin = () => {
-          dispatch(loginUserAction(email, password))
-        };
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    dispatch(loginUserAction(email, password))
+  };
       
 
 const handleRegistration = () => {
