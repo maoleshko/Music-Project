@@ -38,6 +38,7 @@ import { fetchTracks } from '../../store/actions/trackActions';
 
 const Playlist = () => {
   const tracks = useSelector((state) => state.tracks.tracks);
+console.log(tracks)
   const dispatch = useDispatch();
  
 
@@ -60,7 +61,6 @@ const Playlist = () => {
 
   return (
     <div>
-      <h2>Playlist</h2>
       <ul>{playlistItems}</ul>
     </div>
   );

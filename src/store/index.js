@@ -4,7 +4,7 @@ import userSlice from "./slices/userSlice"
 
 export const store = configureStore ({
     reducer: {
-        playlists: allplaylistsReducer,
+        tracks: allplaylistsReducer,
         user: userSlice,
     },
    

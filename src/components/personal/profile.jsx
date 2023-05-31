@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux'
 
 const Profile = () => {
   const token = useSelector((state) => state.user.token)
-  console.log(token)
+
 
   return (
     <div>
-      <h1>Profile</h1>
+      <h2>Profile</h2>
       <p>Token: {token}</p>
     </div>
   )
