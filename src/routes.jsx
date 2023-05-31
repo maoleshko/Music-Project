@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import {Routes, Route} from "react-router-dom"
 import {Login} from './pages/signup/login'
 import {Registration} from './pages/signup/registration'
@@ -12,11 +11,11 @@ import {SelectionPage} from './pages/selection/selectionPage'
 
 export const AppRoutes = () => {
 
-    const [token, setToken] = useState();
+    const token = localStorage.getItem('refresh_token'); 
 
     return (
         <Routes>    
-            <Route path="/login" element={<Login setToken={setToken}/> } />        
+            <Route path="/login" element={<Login/> } />        
             <Route path="/registration" element={<Registration />} />
             <Route path="*" element={<NotFound />} />
             

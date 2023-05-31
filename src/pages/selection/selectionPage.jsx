@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-// import CenterblockContent from '../../components/centerblock/centerblockContent'
 import Menu from '../../components/burgerMenu/menu';
 import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
 import Search from '../../components/search/search';
 import Personal from '../../components/personal/personal';
-// import PlaylistsPage from '../../components/playlist/playlistPage'
 import s from '../../style/style.module.css';
+import PlaylistColl from '../../components/playlist/playlist-collections';
 
 
 export const SelectionPage = () => {
@@ -25,6 +24,7 @@ export const SelectionPage = () => {
           <div className={s.centerblock}>
             <Search/>
             <h2 className={s.h2}>Заголовок подборки</h2> 
+            <PlaylistColl/>
            
           </div>
           <div className={s.sidebar}>

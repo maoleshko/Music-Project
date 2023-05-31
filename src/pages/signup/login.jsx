@@ -14,6 +14,7 @@ export const Login = () => {
 
   const handleLogin = () => {
     dispatch(loginUserAction(email, password))
+    window.location.reload();
   };
       
 
@@ -22,11 +23,9 @@ const handleRegistration = () => {
   window.location.href = '/registration';
 };
 
-// const handleToken= () => {
-
 //      window.location.href = '/';
      
-//   }
+
   
   return (
       <div className={s.login_form}>
@@ -59,8 +58,6 @@ const handleRegistration = () => {
                 
                   <button className={s.btn_login} type="button" onClick={handleLogin}>Войти</button>
                   <button className={s.btn_reg} type="button" onClick={handleRegistration}>Зарегистрироваться</button>             
-                  {/* <button className={s.btn_sign} type="text" onClick={handleToken}>Перейти на главную</button>
-     */}
                 </div>       
             </form>
         </div>

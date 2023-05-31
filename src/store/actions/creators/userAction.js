@@ -7,11 +7,12 @@ export const loginUserAction = (email, password) => async dispatch => {
       email,
       password
     });
-    const token = response.data.access;
+    const token = response.data.refresh;
     document.cookie = `access_token=${response.data.access}`;
     document.cookie = `refresh_token=${response.data.refresh}`;
     dispatch(setToken(token));
-    console.log(response.data.access)
+    localStorage.setItem('refresh_token', token);
+    
   } catch (error) {
     console.log(error);
   }
