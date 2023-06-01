@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { getTokenAction  } from '../../store/actions/creators/userAction'
 import sprite from '../../img/icon/sprite.svg'
 import s from './signup.module.css';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -12,10 +12,17 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const handleLogin = () => {
     dispatch(getTokenAction (email, password))
+    navigate("/");
+  };
+
+  const handleRegister = () => {
+    navigate("/registration");
   };
   
   return (
@@ -48,12 +55,10 @@ export const Login = () => {
                 <div className={s.btn_box}>
                 
                   <button className={s.btn_login} type="button" onClick={handleLogin}>
-                  <NavLink className={s.btn_login} to="/">Войти</NavLink>
-                    
+                    Войти
                     </button>
-                  <button className={s.btn_reg} type="button">
-                  <NavLink to="/registration">Зарегистрироваться</NavLink>
-                    
+                  <button className={s.btn_reg} type="button"onClick={handleRegister}> 
+                    Зарегистрироваться    
                     </button>             
                 </div>       
             </form>

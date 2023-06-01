@@ -3,11 +3,14 @@ import { useState } from 'react'
 import axios from 'axios';
 import s from './signup.module.css';
 import sprite from '../../img/icon/sprite.svg'
+import { useNavigate } from "react-router-dom";
 
 export const Registration = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,7 +22,7 @@ export const Registration = () => {
       });
       console.log(response.data);
       // перенаправление на страницу логина
-      window.location.href = '/login';
+      navigate("/login");
     } catch (error) {
       console.error(error);
     }
