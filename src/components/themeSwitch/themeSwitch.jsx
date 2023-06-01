@@ -4,7 +4,7 @@ import sprite from '../../img/icon/sprite.svg'
 
 
 const ThemeSwitch = ({ value, onChange }) => {
-  const icon = value ? "dark" : "light"; // определяем иконку в зависимости от значения value
+  const icon = value ? "light" : "dark"; // определяем иконку в зависимости от значения value
  
   return (
     <div className={s.btn_theme_svg}>

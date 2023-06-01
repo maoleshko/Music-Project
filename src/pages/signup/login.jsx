@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { loginUserAction } from '../../store/actions/creators/userAction'
+import { getTokenAction  } from '../../store/actions/creators/userAction'
 import sprite from '../../img/icon/sprite.svg'
 import s from './signup.module.css';
+import { NavLink } from 'react-router-dom';
+
 
 
 export const Login = () => {
@@ -13,19 +15,8 @@ export const Login = () => {
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    dispatch(loginUserAction(email, password))
-    window.location.reload();
+    dispatch(getTokenAction (email, password))
   };
-      
-
-const handleRegistration = () => {
-  // перенаправляем на форму регистрации
-  window.location.href = '/registration';
-};
-
-//      window.location.href = '/';
-     
-
   
   return (
       <div className={s.login_form}>
@@ -56,8 +47,14 @@ const handleRegistration = () => {
               />
                 <div className={s.btn_box}>
                 
-                  <button className={s.btn_login} type="button" onClick={handleLogin}>Войти</button>
-                  <button className={s.btn_reg} type="button" onClick={handleRegistration}>Зарегистрироваться</button>             
+                  <button className={s.btn_login} type="button" onClick={handleLogin}>
+                  <NavLink className={s.btn_login} to="/">Войти</NavLink>
+                    
+                    </button>
+                  <button className={s.btn_reg} type="button">
+                  <NavLink to="/registration">Зарегистрироваться</NavLink>
+                    
+                    </button>             
                 </div>       
             </form>
         </div>

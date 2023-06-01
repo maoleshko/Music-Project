@@ -51,7 +51,7 @@ export const NavBar = () => {
                 })
               }
             >
-              Войти
+              Выйти
              </NavLink>
            </li>
          </ul>
