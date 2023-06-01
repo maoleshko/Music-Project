@@ -5,7 +5,7 @@ export const trackSelections = createApi({
     baseQuery: fetchBaseQuery({baseUrl: 'https://painassasin.online/catalog/selection/'}),
     endpoints: (build) => ({
         getTracks: build.query({
-            query: () => `1`,
+            query: () => `2`,
             
         })
     })

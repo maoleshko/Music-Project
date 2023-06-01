@@ -1,6 +1,7 @@
 import React from 'react';
 // import PlaylistItem from './playlistItem';
 import { useGetTracksQuery } from '../../store/api/selectionApi';
+import PlaylistItem from './playlistItem';
 
 
 const PlaylistColl = () => {
@@ -8,29 +9,24 @@ const PlaylistColl = () => {
   const {data = [], isLoading} = useGetTracksQuery();
 
   if (isLoading) return <h1>Loading...</h1>
+  console.log(data.items)
 
-//   const playlistItems = tracks.map((track) => (
-//     <PlaylistItem
-//       key={track.id}
-//       track={{
-//         id: track.id,
-//         title: track.name,
-//         author: track.author,
-//         album: track.album,
-//         time: (track.duration_in_seconds / 60).toFixed(2),
-//       }}
-//     />
-//   ));
+  const playlistItems = data.items.map((item) => (
+    <PlaylistItem
+      key={item.id}
+      track={{
+        id: item.id,
+        title: item.name,
+        author: item.author,
+        album: item.album,
+        time: (item.duration_in_seconds / 60).toFixed(2),
+      }}
+    />
+  ));
 
   return (
     <div>
-      <ul>
-      {data.map(item => (
-          <li key={item.id}>
-            {item.name}
-          </li>
-        ))}
-        </ul>
+      <ul>{playlistItems}</ul> 
     </div>
   );
 };

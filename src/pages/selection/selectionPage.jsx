@@ -25,7 +25,7 @@ export const SelectionPage = () => {
             <Search/>
             <h2 className={s.h2}>Заголовок подборки</h2> 
             <PlaylistColl/>
-           
+
           </div>
           <div className={s.sidebar}>
             <Personal/>
