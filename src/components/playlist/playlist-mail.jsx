@@ -3,9 +3,13 @@ import PlaylistItem from './playlistItem';
 import { useGetAllTracksQuery } from '../../store/api/musicApi';
 
 
-const Playlist = () => {
+const PlaylistMain = () => {
 
   const {data = []} = useGetAllTracksQuery();
+
+  
+  // const authorList = data.map(item => item.author);
+  // console.log(authorList)
 
   const playlistItems = data.map((item) => (
     <PlaylistItem
@@ -26,4 +30,4 @@ const Playlist = () => {
   );
 };
 
-export default Playlist;
+export default PlaylistMain;

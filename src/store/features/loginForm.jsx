@@ -28,13 +28,14 @@ export const LoginForm = () => {
      
             postLogin({ email, password }) 
             .then((user) => { 
+                localStorage.setItem('user_id', user.data.id);
                 // console.log(user) 
                 dispatch(userLogin({ 
                     email: user.data.email, 
                     id: user.data.id, 
                     token: token.refresh 
                 })); 
-             
+             console.log('navigate')
                 navigate('/') 
             })
             .catch(error => {

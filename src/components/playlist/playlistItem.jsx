@@ -1,10 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './playlistitem.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
 
 
 const PlaylistItem = ({track}) => {
+
+        const [isFavorite, setIsFavorite] = useState(false);
+      
+        const handleFavorite = () => {
+          setIsFavorite(!isFavorite); // изменяем состояние избранного
+      
+          const favorites = JSON.parse(localStorage.getItem('favorites') || '[]'); // получаем текущий список избранных треков из локального хранилища
+          if (isFavorite) {
+            // если трек уже в избранном, удаляем его из списка
+            const index = favorites.indexOf(track);
+            favorites.splice(index, 1);
+          } else {
+            // если трек не в избранном, добавляем его в список
+            favorites.push(track);
+          }
+      
+          localStorage.setItem('favorites', JSON.stringify(favorites)); // сохраняем список избранных треков в локальное хранилище
+        };
+      
     return (
         <div className={s.track_list}>
             <div className={s.content}>
@@ -35,8 +54,8 @@ const PlaylistItem = ({track}) => {
                                 </SkeletonLoading>
                             </div>
                             <div className={s.time}>
-                                    <svg className={s.time_svg} alt="time">
-                                        <use xlinkHref={`${sprite}#icon-like`}></use>
+                                    <svg className={s.time_svg} alt="time" onClick={handleFavorite}>
+                                        <use xlinkHref={`${sprite}#icon-like`} fill={isFavorite ? 'blueviolet' : 'gray'}></use>
                                     </svg>
                                     <span className={s.time_text}>{track.time}</span>
                             </div>

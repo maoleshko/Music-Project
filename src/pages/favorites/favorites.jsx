@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CenterblockContent from '../../components/centerblock/centerblockContent'
+import PlaylistFavor from '../../components/playlist/playlist-favor'
 import Menu from '../../components/burgerMenu/menu';
 import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
@@ -11,12 +11,8 @@ import s from '../../style/style.module.css';
 export const Favorites = () => {
     const [menuActive, setMenuActive] = useState(false)
 
-    const id = 1; // Значение id может меняться динамически
     
-fetch(`https://painassasin.online/catalog/selection/${id}`)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
+
     return (
         <div>
             <main className={s.main}>
@@ -31,7 +27,7 @@ fetch(`https://painassasin.online/catalog/selection/${id}`)
             <Search/>
             <h2 className={s.h2}>Избранное</h2> 
             
-            <CenterblockContent/>
+            <PlaylistFavor/>
           </div>
           <div className={s.sidebar}>
             <Personal/>

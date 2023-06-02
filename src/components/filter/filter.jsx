@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import s from './filter.module.css';
+import { useGetAllTracksQuery } from '../../store/api/musicApi';
 
   const CategoryButton = ({category, isActive, onClick }) => {
     return (
@@ -25,12 +26,20 @@ import s from './filter.module.css';
     );
   };
 
-const Appapp = () => {
+const FilterContent = () => {
   const [activeCategory, setActiveCategory] = useState(null);
 
+  const {data = []} = useGetAllTracksQuery();
+  
+const authorList = Array.from(new Set(data.map(item => item.author)));
+  console.log(authorList)
+
+  const genreList = Array.from(new Set(data.map(item => item.genre)));
+   console.log(genreList)
+  
   const categories = [
     { name: "Исполнители", data: ["Исполнитель 1", "Исполнитель 2", "Исполнитель 3", "Исполнитель 4", "Исполнитель 5"] },
-    { name: "Год выпуска", data: ["2020", "2019", "2018"] },
+    { name: "Год выпуска", data: ["Поубывания", "Повозрастанию"] },
     { name: "Жанры", data: ["Жанр 1", "Жанр 2", "Жанр 3"] }
   ];
 
@@ -41,6 +50,8 @@ const Appapp = () => {
       setActiveCategory(categoryName);
     }
   };
+
+
   
   return (
       <div className={s.centerblock__filter}>
@@ -67,4 +78,4 @@ const Appapp = () => {
   );
 };
 
-export default Appapp;
+export default FilterContent;
