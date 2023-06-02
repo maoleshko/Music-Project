@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { usePostTokenMutation, usePostLoginMutation } from '../../store/api/musicApi';
+import { usePostTokenMutation, usePostLoginMutation } from '../api/musicApi';
 import { useDispatch } from 'react-redux';
-import { userLogin } from '../../store/slices/userSlice';
+import { userLogin } from '../slices/userSlice';
 import s from '../../pages/signup/signup.module.css';
 import sprite from '../../img/icon/sprite.svg'
 

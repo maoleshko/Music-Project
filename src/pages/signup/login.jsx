@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './signup.module.css';
-import { LoginForm } from '../../components/forms/loginForm';
+import { LoginForm } from '../../store/features/loginForm';
 
 export const Login = () => {
 

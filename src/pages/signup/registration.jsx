@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './signup.module.css';
-import { RegisterForm } from '../../components/forms/register';
+import { RegisterForm } from '../../store/features/registerForm';
 
 export const Registration = () => {
 
