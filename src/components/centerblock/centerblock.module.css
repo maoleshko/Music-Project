@@ -1,18 +1,13 @@
+.content {
+  max-width: 1024px;
+}
+
 .content_title {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
-}
-
-.content__playlist {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-
-.title_col {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -20,6 +15,30 @@
   letter-spacing: 2px;
   color: #696969;
   text-transform: uppercase;
+  
+}
+
+.content__playlist {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.title_track {
+  width: 447px;
+}
+
+.title_author {
+  width: 321px;
+}
+
+.title_album {
+  width: 245px;
+}
+
+.title_time {
+  width: 60px;
+text-align: end;
 }
 
 .time_svg {
