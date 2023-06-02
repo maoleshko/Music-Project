@@ -1,7 +1,7 @@
 import React from 'react';
 import s from'./centerblock.module.css';
 import sprite from '../../img/icon/sprite.svg'
-import Playlist from '../playlist/playlist';
+import Playlist from '../playlist/playlist-mail';
 
 function CenterblockContent() {
    return (

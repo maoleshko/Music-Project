@@ -6,8 +6,6 @@ import sprite from '../../img/icon/sprite.svg'
 import s from './signup.module.css';
 import { useNavigate } from "react-router-dom";
 
-
-
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

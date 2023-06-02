@@ -7,12 +7,13 @@ export const musicApi = createApi({
     baseUrl: "https://painassasin.online/",
   }),
   endpoints: (builder) => ({
-    getAllMusic: builder.query({
+    getAllTracks: builder.query({
       query: () => 'catalog/track/all'      
     }), 
 
     getSelectMusic: builder.query({
-      query: () => 'catalog/selection'      
+      // вместо 2 доблжен быть динамический id
+      query: () => 'catalog/selection/2'      
     }),
 
     postReg: builder.mutation({
@@ -41,4 +42,4 @@ export const musicApi = createApi({
   }),
 });
 
-export const { useGetAllMusicQuery, useGetSelectMusicQuery, usePostRegMutation, usePostLoginMutation, usePostTokenMutation } = musicApi;
+export const { useGetAllTracksQuery, useGetSelectMusicQuery, usePostRegMutation, usePostLoginMutation, usePostTokenMutation } = musicApi;
