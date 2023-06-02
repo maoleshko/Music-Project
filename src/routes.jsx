@@ -12,7 +12,7 @@ import Profile from './pages/profile/profile';
 
 export const AppRoutes = () => {
 
-    const token = localStorage.getItem('refresh_token'); 
+    const token = localStorage.getItem('token'); 
 
     return (
         <Routes>    

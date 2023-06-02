@@ -17,25 +17,38 @@ export const LoginForm = () => {
     // eslint-disable-next-line no-empty-pattern
     const [postLogin, {}] = usePostLoginMutation();
 
-    const handleLogin = async () => { 
-
-        await postToken({email, password}).unwrap() 
-        .then ((token) => { 
-        console.log(token);
-
-        postLogin({ email, password })
-        .then((user) => {
-            console.log(user)
-             dispatch(userLogin({
-            email: user.data.email,
-            id: user.data.id,
-            token: token.refresh
-        }));
-        
-    })
-    
-    navigate('/')
-})}      
+    const handleLogin = async () => {  
+ 
+        await postToken({email, password}).unwrap()  
+        .then ((token) => {  
+            // console.log(token); 
+     
+            // Сохраняем token в localStorage
+            localStorage.setItem('token', token.refresh);
+     
+            postLogin({ email, password }) 
+            .then((user) => { 
+                // console.log(user) 
+                dispatch(userLogin({ 
+                    email: user.data.email, 
+                    id: user.data.id, 
+                    token: token.refresh 
+                })); 
+             
+                navigate('/') 
+            })
+            .catch(error => {
+                console.log(error);
+                // Выводим ошибку на экране
+                alert(`Ошибка при получении токена. Попробуйте еще раз.`);
+            });
+        })
+        .catch(error => {
+            console.log(error);
+            // Выводим ошибку на экране
+            alert(`Ошибка ${error.status}: ${error.data.detail}`);
+        });
+    }   
 
     function handleRegistration() {
         navigate('/registration');
