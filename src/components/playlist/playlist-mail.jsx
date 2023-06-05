@@ -7,10 +7,6 @@ const PlaylistMain = () => {
 
   const {data = []} = useGetAllTracksQuery();
 
-  
-  // const authorList = data.map(item => item.author);
-  // console.log(authorList)
-
   const playlistItems = data.map((item) => (
     <PlaylistItem
       key={item.id}

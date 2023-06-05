@@ -1,28 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './playlistitem.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
+// import { useGetLikesTrackMutation, useSetLikeMutation, useSetUnlikeMutation } from '../../store/api/musicApi'
 
 
 const PlaylistItem = ({track}) => {
 
-        const [isFavorite, setIsFavorite] = useState(false);
-      
-        const handleFavorite = () => {
-          setIsFavorite(!isFavorite); // изменяем состояние избранного
-      
-          const favorites = JSON.parse(localStorage.getItem('favorites') || '[]'); // получаем текущий список избранных треков из локального хранилища
-          if (isFavorite) {
-            // если трек уже в избранном, удаляем его из списка
-            const index = favorites.indexOf(track);
-            favorites.splice(index, 1);
-          } else {
-            // если трек не в избранном, добавляем его в список
-            favorites.push(track);
-          }
-      
-          localStorage.setItem('favorites', JSON.stringify(favorites)); // сохраняем список избранных треков в локальное хранилище
-        };
+   
+    const handleFavorite = () => {
+        //при нажатии на иконку сердце получаем id трека
+        console.log(track.id)
+    }
+
+    
       
     return (
         <div className={s.track_list}>
@@ -55,7 +46,7 @@ const PlaylistItem = ({track}) => {
                             </div>
                             <div className={s.time}>
                                     <svg className={s.time_svg} alt="time" onClick={handleFavorite}>
-                                        <use xlinkHref={`${sprite}#icon-like`} fill={isFavorite ? 'blueviolet' : 'gray'}></use>
+                                        <use xlinkHref={`${sprite}#icon-like`} ></use>
                                     </svg>
                                     <span className={s.time_text}>{track.time}</span>
                             </div>

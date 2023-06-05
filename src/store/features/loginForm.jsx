@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { usePostTokenMutation, usePostLoginMutation } from '../api/musicApi';
+import { usePostTokenMutation, usePostLoginMutation } from '../api/userApi';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../slices/userSlice';
 import s from '../../pages/signup/signup.module.css';
@@ -35,8 +35,9 @@ export const LoginForm = () => {
                     id: user.data.id, 
                     token: token.refresh 
                 })); 
-             console.log('navigate')
                 navigate('/') 
+             console.log('переход на главную страницу')
+                
             })
             .catch(error => {
                 console.log(error);

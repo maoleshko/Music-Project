@@ -14,6 +14,7 @@ const PlaylistFavor = () => {
 const starredList = data.filter(item => {
   return item.stared_user.find(user => user.id === userId);
 });
+
 console.log(starredList)
 const playlistItems = starredList.map((item) => (
   <PlaylistItem

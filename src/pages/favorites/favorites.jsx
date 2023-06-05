@@ -6,7 +6,7 @@ import BarPlayer from '../../components/barPlayer/barPlayer';
 import Search from '../../components/search/search';
 import Personal from '../../components/personal/personal';
 import s from '../../style/style.module.css';
-// import CenterblockContent from '../../components/centerblock/centerblockContent';
+
 
 export const Favorites = () => {
     const [menuActive, setMenuActive] = useState(false)

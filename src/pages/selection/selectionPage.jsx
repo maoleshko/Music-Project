@@ -23,9 +23,7 @@ export const SelectionPage = () => {
           </nav>    
           <div className={s.centerblock}>
             <Search/>
-            <h2 className={s.h2}>Заголовок подборки</h2> 
             <PlaylistColl/>
-
           </div>
           <div className={s.sidebar}>
             <Personal/>

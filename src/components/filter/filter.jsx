@@ -32,14 +32,14 @@ const FilterContent = () => {
   const {data = []} = useGetAllTracksQuery();
   
 const authorList = Array.from(new Set(data.map(item => item.author)));
-  console.log(authorList)
+ 
 
   const genreList = Array.from(new Set(data.map(item => item.genre)));
-   console.log(genreList)
+   console.log(genreList, authorList)
   
   const categories = [
     { name: "Исполнители", data: ["Исполнитель 1", "Исполнитель 2", "Исполнитель 3", "Исполнитель 4", "Исполнитель 5"] },
-    { name: "Год выпуска", data: ["Поубывания", "Повозрастанию"] },
+    { name: "Год выпуска", data: ["По убывания", "По возрастанию"] },
     { name: "Жанры", data: ["Жанр 1", "Жанр 2", "Жанр 3"] }
   ];
 

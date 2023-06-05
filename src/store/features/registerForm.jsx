@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { usePostRegMutation} from '../../store/api/musicApi';
+import { usePostRegMutation} from '../../store/api/userApi';
 import s from '../../pages/signup/signup.module.css';
 import sprite from '../../img/icon/sprite.svg'
 

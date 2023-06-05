@@ -1,42 +1,41 @@
-import axios from 'axios';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-const API_URL = 'https://painassasin.online/user/'
+export const userApi = createApi({
+  
+  reducerPath: "userApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://painassasin.online/",
+  }),
+  endpoints: (builder) => ({
+    postLogin: builder.mutation({
+      query: (body) => ({
+        url: 'user/login/',
+        method: 'POST',
+        body,
+      })      
+    }),
+    postReg: builder.mutation({
+      query: (body) => ({
+        url: 'user/signup/',
+        method: 'POST',
+        body,
+      })      
+    }),
+    postToken: builder.mutation({
+      query: (body) => ({
+        url: 'user/token/',
+        method: 'POST',
+        body,
+      })      
+    }),
+    postTokenRefresh: builder.mutation({
+      query: (body) => ({
+        url: '/user/token/refresh/',
+        method: 'POST',
+        body,
+      }),
+    }),
+  }),
+});
 
-// Регистрация пользователя
-export const registerUser = async (username, email, password) => {
-  try {
-    const response = await axios.post(API_URL + 'signup/', {
-      username,
-      email,
-      password,
-    });
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// Авторизация пользователя
-export const loginUser = async (email, password) => {
-  try {
-    const response = await axios.post(API_URL + 'login/', {
-      email,
-      password,
-    });
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// Получение токена
-export const getToken = async (refreshToken) => {
-  try {
-    const response = await axios.post(API_URL + 'token/', {
-      refresh: refreshToken,
-    });
-    return response.data.refresh;
-  } catch (error) {
-    console.log(error);
-  }
-};
+export const { usePostRegMutation, usePostLoginMutation, usePostTokenMutation, usePostTokenRefreshMutation } = userApi;
