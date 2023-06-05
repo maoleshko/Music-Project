@@ -7,9 +7,7 @@ const PlaylistFavor = () => {
 
   const {data = []} = useGetAllTracksQuery();
 
-  //id пользователя можно получить из localStorage
-  // const userId = localStorage.getItem('user_id');
-  const userId = 21
+  const userId = Number(localStorage.getItem('user_id'));
 
 const starredList = data.filter(item => {
   return item.stared_user.find(user => user.id === userId);

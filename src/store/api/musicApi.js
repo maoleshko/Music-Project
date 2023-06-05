@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
+
 export const musicApi = createApi({
   
   reducerPath: "musicApi",
@@ -7,7 +8,8 @@ export const musicApi = createApi({
     baseUrl: "https://painassasin.online/",
     tagTypes: ['Tracks'],
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().user.token.access
+      const token = getState().user.token
+      console.log('getState().user.token.access',token)
       if (token) {
         headers.set('Authorization', `Bearer ${token}`)
       }
@@ -22,13 +24,7 @@ export const musicApi = createApi({
     getSelectMusic: builder.query({
       query: (id) => `catalog/selection/${id}`      
     }),
-    getLikesTrack: builder.mutation({
-      query: () => ({
-        url: `/catalog/track/favorite/all/`,
-        method: 'GET',
-      }),
-      invalidatesTags: ['Tracks'],
-    }),
+  
     setLike: builder.mutation({
       query: (id) => ({
         url: `/catalog/track/${id}/favorite/`,
@@ -47,4 +43,4 @@ export const musicApi = createApi({
 })
 
 
-export const { useGetAllTracksQuery, useGetSelectMusicQuery, useGetLikesTrackMutation, useSetLikeMutation, useSetUnlikeMutation } = musicApi;
+export const { useGetAllTracksQuery, useGetSelectMusicQuery, useSetLikeMutation, useSetUnlikeMutation } = musicApi;

@@ -33,7 +33,7 @@ export const LoginForm = () => {
                 dispatch(userLogin({ 
                     email: user.data.email, 
                     id: user.data.id, 
-                    token: token.refresh 
+                    token: token.access 
                 })); 
                 navigate('/') 
              console.log('переход на главную страницу')
