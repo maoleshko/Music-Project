@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import s from './playlistitem.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
@@ -10,23 +10,32 @@ const PlaylistItem = ({track}) => {
 
     const [setLike] = useSetLikeMutation()
     const [setUnlike] = useSetUnlikeMutation()
-//   const userId = localStorage.getItem('user_id');
-  
-  const [isFavourite, setFavourite] = useState(null)
+    const [liked, setLiked] = useState([]) 
+    const [isFavourite, setFavourite] = useState(null)
 
-   
-   
-        const handleFavorite = async () => {
-            if (isFavourite) {
-              await setUnlike(track.id)
-              setFavourite(false)
-            } else {
-              await setLike(track.id)
-              setFavourite(true)
-            }
-          }
-          
-      
+  useEffect(() => {
+    const userId = localStorage.getItem('user_id')
+    console.log(userId)
+  }, [])
+  
+
+  useEffect(() => {
+    setFavourite(liked.includes(track.id))
+  }, [liked, track.id])
+
+ 
+  const handleFavorite = async () => { 
+    if (isFavourite) { 
+      await setUnlike(track.id) 
+      setLiked(liked.filter(id => id !== track.id))
+      setFavourite(false) 
+    } else { 
+      await setLike(track.id) 
+      setLiked([...liked, track.id])
+      setFavourite(true) 
+    } 
+  }
+            
     return (
         <div className={s.track_list}>
             <div className={s.content}>

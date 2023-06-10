@@ -13,7 +13,7 @@ const starredList = data.filter(item => {
   return item.stared_user.find(user => user.id === userId);
 });
 
-console.log(starredList)
+// console.log(starredList)
 const playlistItems = starredList.map((item) => (
   <PlaylistItem
       key={item.id}
@@ -31,28 +31,6 @@ const playlistItems = starredList.map((item) => (
        <ul>{playlistItems}</ul>
      </div>
   )
-
-
-
-
-  
-  
-
-  // const playlistItems = data.map((item) => (
-  //   <PlaylistItem
-  //     key={item.id}
-  //     track={{
-  //       id: item.id,
-  //       title: item.name,
-  //       author: item.author,
-  //       album: item.album,
-  //       time: (item.duration_in_seconds / 60).toFixed(2),
-  //     }}
-  //   />
-  // ));
-  // return (
-  //   
-  // );
 };
 
 export default PlaylistFavor;

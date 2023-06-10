@@ -5,7 +5,6 @@ import s from '../../style/style.module.css';
 
 const PlaylistColl = () => {
 
-//ghbybvftv id подборки и добавить его useGetSelectMusicQuery(id);
 let url = window.location.href;
 let id = url.split('/').pop(); // получаем последний элемент из массива, содержащего разделенные по '/' элементы URL
 
@@ -26,6 +25,7 @@ let id = url.split('/').pop(); // получаем последний элеме
   }
 
   const {data = [], isLoading} = useGetSelectMusicQuery(id);
+
 
   if (isLoading) return <h1>Loading...</h1>
   
