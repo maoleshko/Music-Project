@@ -3,43 +3,41 @@ import s from './playlistitem.module.css';
 import sprite from '../../img/icon/sprite.svg'
 import SkeletonLoading from '../skeleton/skeletonLoading';
 import { useSetLikeMutation, useSetUnlikeMutation } from '../../store/api/musicApi'
-
-
+import { setCurrentTrack } from '../../store/slices/setTracks';
+import { useDispatch } from 'react-redux';
 
 const PlaylistItem = ({track}) => {
 
-    const [setLike] = useSetLikeMutation()
-    const [setUnlike] = useSetUnlikeMutation()
-    const [liked, setLiked] = useState([]) 
-    const [isFavourite, setFavourite] = useState(null)
+    const { id: trackID, name, author, album, stared_user, duration_in_seconds } = track
+    
+    const [postLike] =  useSetLikeMutation();
+    const [postUnlike] = useSetUnlikeMutation();
+    const dispatch = useDispatch()
 
-  useEffect(() => {
-    const userId = localStorage.getItem('user_id')
-    console.log(userId)
-  }, [])
-  
+    const userId = Number(localStorage.getItem('user'));
 
-  useEffect(() => {
-    setFavourite(liked.includes(track.id))
-  }, [liked, track.id])
+    const [isFavourite, setFavourite] = useState(false)
 
- 
-  const handleFavorite = async () => { 
-    if (isFavourite) { 
-      await setUnlike(track.id) 
-      setLiked(liked.filter(id => id !== track.id))
-      setFavourite(false) 
-    } else { 
-      await setLike(track.id) 
-      setLiked([...liked, track.id])
-      setFavourite(true) 
-    } 
-  }
+    useEffect(() => {
+        setFavourite(stared_user.some((user) => user.id === userId))
+      }, [track])
+
+      const handleFavorite = () => {
+        if (isFavourite) postUnlike(trackID)
+        else postLike(trackID)
+      }
+
+      const handleOnRowClick = () => {
+        dispatch(setCurrentTrack({
+            track: track,
+
+        }));
+      }
             
     return (
         <div className={s.track_list}>
             <div className={s.content}>
-                <div className={s.item}>
+                <div className={s.item} onClick={() => handleOnRowClick()}>
                     <div className={s.track}>
                         <div className={s.track_title}>
                             <div className={s.title_image}>
@@ -51,26 +49,26 @@ const PlaylistItem = ({track}) => {
                             </div>
                             <div className={s.title_text}>
                                 <SkeletonLoading width={330} height={25}>
-                                    <a className={s.title_link} href="http://">{track.title} <span className="track__title-span"></span></a>
+                                    <a className={s.title_link} href="http://">{name} <span className="track__title-span"></span></a>
                                 </SkeletonLoading>
                             </div>
                         </div>
                             <div className={s.author}>
                                 <SkeletonLoading width={280} height={25}>
-                                        <a className={s.author_link} href="http://">{track.author}</a>
+                                        <a className={s.author_link} href="http://">{author}</a>
                                 </SkeletonLoading>
                             </div>
                             <div className={s.album}>
                                 <SkeletonLoading width={310} height={25}>
-                                    <a className={s.album_link} href="http://">{track.album}</a>
+                                    <a className={s.album_link} href="http://">{album}</a>
                                 </SkeletonLoading>
                             </div>
                             <div className={s.time}>
                                     <svg className={s.time_svg} alt="time" onClick={handleFavorite}>
-                                         <use xlinkHref={`${sprite}#icon-like`} fill={isFavourite ? 'red' : 'gray'} />
+                                         <use xlinkHref={`${sprite}#icon-like`} fill={isFavourite ? 'blueviolet' : 'gray'} />
      
                                     </svg>
-                                    <span className={s.time_text}>{track.time}</span>
+                                    <span className={s.time_text}>{duration_in_seconds}</span>
                             </div>
                     </div>
                 </div>
