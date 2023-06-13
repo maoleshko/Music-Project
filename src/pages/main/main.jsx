@@ -9,11 +9,42 @@ import SidebarBlock from '../../components/sidebar/sidebarBlock';
 import Menu from '../../components/burgerMenu/menu';
 import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
+import { useGetAllTracksQuery } from '../../store/api/musicApi';
+import { useSelector } from "react-redux";
 
 
 export const Main = () => {
   const [menuActive, setMenuActive] = useState(false)
-    
+  const [isLoad] = useState(true); 
+
+  const {data = [], isLoading} = useGetAllTracksQuery();
+
+  const filterAuthor = useSelector(state => state.setFilters.author);
+  const filterGenre = useSelector(state => state.setFilters.genre);
+  const filterYears = useSelector(state => state.setFilters.years)
+
+  if (isLoading) return <h1>Loading...</h1>
+  
+  let TRACKS = data;
+
+  switch (filterYears) {
+    case 'Сначала новые': TRACKS = TRACKS.filter((element) => element).sort(({release_date: adate}, {release_date: bdate}) => (new Date(adate).valueOf()) - (new Date(bdate).valueOf()));   
+        break;
+        case 'Сначала старые':TRACKS = TRACKS.filter((element) => element).sort(({release_date: adate}, {release_date: bdate}) => (new Date(bdate).valueOf()) - (new Date(adate).valueOf()))            
+        break;
+    default:
+        break;
+}
+
+    if ( filterAuthor.length > 0) {
+
+        TRACKS = TRACKS.filter(({ author }) => filterAuthor.includes(author))
+    } 
+    if (filterGenre.length > 0) {
+
+        TRACKS = TRACKS.filter(({ genre }) => filterGenre.includes(genre))
+    }
+        
     return (  
       <div className={s.container}>
         <main className={s.main}>
@@ -27,7 +58,9 @@ export const Main = () => {
           <div className={s.centerblock}>
             <Search/>
             <h2 className={s.h2}>Треки</h2> 
-            <Filter/>        
+            <Filter 
+            traks={TRACKS}
+            />        
             <CenterblockContent/>
           </div>
           <div className={s.sidebar}>
@@ -35,7 +68,10 @@ export const Main = () => {
             <SidebarBlock/>
           </div>
         </main>
-        <BarPlayer/>
+        <BarPlayer
+         loading={isLoad} 
+         tracks = {TRACKS} 
+         />
       </div>
     )
 }

@@ -43,7 +43,7 @@
         <path d="M1 1L15 13.5" />
     </symbol>
     <symbol id="icon-prev" viewBox="0 0 16 14"  xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 2V12.5" />
+        <path d="M1 2V12.5" stroke='#b1b1b1'/>
         <path d="M3 7L12.75 0.937823L12.75 13.0622L3 7Z" />
     </symbol>
     <symbol id="icon-play" viewBox="0 0 15 20"  xmlns="http://www.w3.org/2000/svg">

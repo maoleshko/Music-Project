@@ -30,8 +30,8 @@ const PlaylistItem = ({track}) => {
       const handleOnRowClick = () => {
         dispatch(setCurrentTrack({
             track: track,
-
-        }));
+            })
+        );
       }
             
     return (
