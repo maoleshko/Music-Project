@@ -10,7 +10,9 @@ import Menu from '../../components/burgerMenu/menu';
 import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
 import { useGetAllTracksQuery } from '../../store/api/musicApi';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setFilterInp} from '../../store/slices/setFilters';
+import {useTrack} from "../../hooks/use-track"
 import sprite from '../../img/icon/sprite.svg'
 import Playlist from '../../components/playlist/playlist-mail';
 
@@ -18,6 +20,8 @@ import Playlist from '../../components/playlist/playlist-mail';
 export const Main = () => {
   const [menuActive, setMenuActive] = useState(false)
   const [isLoad] = useState(true); 
+  const dispatch = useDispatch()
+  const {id} = useTrack();
 
   const {data = [], isLoading} = useGetAllTracksQuery();
 
@@ -58,7 +62,17 @@ export const Main = () => {
             <Menu active={menuActive} setActive={setMenuActive} header={""} />
           </nav>    
           <div className={s.centerblock}>
-            <Search/>
+            <Search
+            onInput={(event) => {
+              const target = event.target.value
+              dispatch(setFilterInp({
+                  serchInp: target,            
+              }));            
+          }}
+              type="search"
+              placeholder="Поиск"
+              name="search"
+              />
             <h2 className={s.h2}>Треки</h2> 
             <Filter 
             traks={TRACKS}
@@ -85,13 +99,20 @@ export const Main = () => {
           </div>
           <div className={s.sidebar}>
             <Personal/>
-            <SidebarBlock/>
+            <SidebarBlock
+              loading={isLoad} 
+              tracks = {TRACKS} 
+            />
           </div>
         </main>
-        <BarPlayer
-         loading={isLoad} 
-         tracks = {TRACKS} 
-         />
+        <div>
+        {id ? 
+          <BarPlayer
+            loading={isLoad} 
+            tracks = {TRACKS}                 
+            /> : ''}    
+        </div>
+        
       </div>
     )
 }

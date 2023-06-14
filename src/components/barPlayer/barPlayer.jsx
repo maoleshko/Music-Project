@@ -15,7 +15,6 @@ export const BarPlayer = (props) => {
     const [isShuffle, setShuffle] = useState(false)
     const [isRepeat, setRepeat] = useState(false)
     const [position, setPosition] = useState();
-    const ref = useRef(null);
     const clickRef = useRef();
     const {id, name, author} = useTrack();
 
@@ -34,7 +33,7 @@ export const BarPlayer = (props) => {
     const [audio, state, controls,] = useAudio({
         
         src: playingTrack.track_file,
-        autoPlay: false,
+        autoPlay: true,
         onEnded: () => {
           if (!isRepeat) {
             handleNext()
@@ -80,14 +79,24 @@ export const BarPlayer = (props) => {
             length: duration,
         });        
     },[state])
+
+    const handleValueChange = (event) => {
+        controls.volume(Number(event.target.value) / 10)
+      }
+
+  useEffect(() => {
+      controls.volume(0.5)
+    }, [])
     
 
 
     const checkWidth = (e) => {
+        if(clickRef.current){
         let width = clickRef.current.clientWidth;
         const offset = e.nativeEvent.offsetX;
         const divprogress = (offset / width) * 100;
-        ref.current.currentTime = (divprogress / 100) * position.length;
+        controls.seek(state.duration * (divprogress / 100)) ;
+        }
     };   
    
   return (
@@ -100,7 +109,7 @@ export const BarPlayer = (props) => {
                             <div className={s.navigationWrapper} onClick={checkWidth} ref={clickRef}>
                                 
                             <div className={s.seekBar} style={{ 
-                                width: position ? `${position.progress}%` : '', 
+                                 width: position ? `${position.progress + '%'}` : '',
                             }}></div>
                             </div>
                     </div>
@@ -172,14 +181,17 @@ export const BarPlayer = (props) => {
                         <div className={s.bar__volume_block} >
                            <div className={s.volume__content}>
                                 <div className={s.volume__image}>
-                                    <svg className={s.volume__svg} alt="volume">
-                                        <use xlinkHref={`${sprite}#icon-volume`}></use>
+                                    <svg className={s.volume__svg} onClick={state.muted ? controls.unmute: controls.mute} alt="volume"> 
+                                        <use xlinkHref={`${sprite}#icon-volume`} stroke={state.muted ? 'red' : ''}></use>
                                     </svg>
                                 </div>
                                 <div className={s.volume__progress}>
                                     <input className={s.volume__progress_line} 
                                     type="range" 
-                                    name="range"/>
+                                    name="range"
+                                    min="0" 
+                                    max="10"
+                                    defaultValue={state.volume * 10} onChange={handleValueChange}  />
                                 </div>
                                 
                            </div>
