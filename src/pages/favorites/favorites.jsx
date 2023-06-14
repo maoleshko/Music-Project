@@ -6,13 +6,19 @@ import BarPlayer from '../../components/barPlayer/barPlayer';
 import Search from '../../components/search/search';
 import Personal from '../../components/personal/personal';
 import s from '../../style/style.module.css';
+import { useGetAllTracksQuery } from '../../store/api/musicApi';
 
 
 export const Favorites = () => {
     const [menuActive, setMenuActive] = useState(false)
+    const [isLoad] = useState(true); 
 
-    
+  const {data = [], isLoading} = useGetAllTracksQuery();
+  if (isLoading) return <h1>Loading...</h1>
+  
+  let TRACKS = data;
 
+  
     return (
         <div>
             <main className={s.main}>
@@ -34,7 +40,10 @@ export const Favorites = () => {
             
           </div>
         </main>
-        <BarPlayer/>
+        <BarPlayer
+         loading={isLoad} 
+         tracks = {TRACKS} 
+         />
         </div>
     )
 }
