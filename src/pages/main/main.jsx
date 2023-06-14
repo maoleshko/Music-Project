@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import s from '../../style/style.module.css';
 import Search from '../../components/search/search';
 import Filter from '../../components/filter/filter';
-import CenterblockContent from '../../components/centerblock/centerblockContent';
+// import CenterblockContent from '../../components/centerblock/centerblockContent';
 import Personal from '../../components/personal/personal';
 import SidebarBlock from '../../components/sidebar/sidebarBlock';
 import Menu from '../../components/burgerMenu/menu';
@@ -11,6 +11,8 @@ import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
 import { useGetAllTracksQuery } from '../../store/api/musicApi';
 import { useSelector } from "react-redux";
+import sprite from '../../img/icon/sprite.svg'
+import Playlist from '../../components/playlist/playlist-mail';
 
 
 export const Main = () => {
@@ -61,7 +63,25 @@ export const Main = () => {
             <Filter 
             traks={TRACKS}
             />        
-            <CenterblockContent/>
+            <div className={s.content}>
+       <div className={s.content_title}>
+          <div className={s.title_track} >Трек</div>
+          <div className={s.title_author}>ИСПОЛНИТЕЛЬ</div>
+          <div className={s.title_album}>АЛЬБОМ</div>
+          <div className={s.title_time}>
+            <svg className={s.time_svg} alt="time">
+              <use xlinkHref={`${sprite}#icon-watch`}></use>
+            </svg>
+          </div>
+      </div>
+      <div className={s.playlist}>   
+      <Playlist 
+       key={TRACKS.id}
+       track={TRACKS}
+       loading={isLoad}
+       />
+        </div>
+    </div>
           </div>
           <div className={s.sidebar}>
             <Personal/>

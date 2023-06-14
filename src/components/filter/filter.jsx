@@ -1,68 +1,87 @@
 import React, {useState} from 'react';
 import s from './filter.module.css';
+import { useGetAllTracksQuery } from '../../store/api/musicApi';
+import { CategoryButton } from './categoryButton';
+import { Dropdown } from './dropdown';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFilterYears, removeFilterAuthor, removeFilterGenre } from '../../store/slices/setFilters';
 
-  const CategoryButton = ({category, isActive, onClick }) => {
-    return (
-      <button
-        className={`${s.filter__button} ${isActive ? s.active : ""}`}
-        onClick={onClick}
-      >
-        {category}
-      </button>
-    );
-  };
-
-  const Dropdown = ({ data }) => {
-    return (
-      <div className={s.dropdown}>
-        {data.map((item) => (
-          <div key={item} className={s.dropdown_item}>
-            {item}
-          </div>
-        ))}
-      </div>
-      
-    );
-  };
 
 const FilterContent = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
 
-  
-  const categories = [
-    { name: "Исполнители", data: ["Исполнитель 1", "Исполнитель 2", "Исполнитель 3", "Исполнитель 4", "Исполнитель 5"] },
-    { name: "Год выпуска", data: ["По убывания", "По возрастанию"] },
-    { name: "Жанры", data: ["Жанр 1", "Жанр 2", "Жанр 3"] }
-  ];
+    const [activeCategory, setActiveCategory] = useState(null);
+    const dispatch = useDispatch()
+    const {data} = useGetAllTracksQuery();
 
-  const handleCategoryClick = (categoryName) => {
-    if (activeCategory === categoryName) {
-      setActiveCategory(null);
-    } else {
-      setActiveCategory(categoryName);
-    }
-  };
+    const authorTrack = data.map(item => item.author)
+    const author = Array.from(new Set(authorTrack));
+
+    const genreTrack = data.map(item => item.genre,)
+    const genre = Array.from(new Set(genreTrack));
+
+    const years = ['Сначала новые','Сначала старые']   
+         
+    
+    const handleCategoryClick = (categoryName) => {
+        if (activeCategory === categoryName) {
+            setActiveCategory(null);
+        } else {
+            setActiveCategory(categoryName);
+        }
+    };
+    const filterAuthor = useSelector(state => state.setFilters.author);
+    const filterGenre = useSelector(state => state.setFilters.genre);
+    const filterYears = useSelector(state => state.setFilters.years)
 
 
   return (
       <div className={s.centerblock__filter}>
-          
-          <div className={s.filter}>
-      
-        <div className={s.filter__title}>Искать по:</div>
-          <div className={s.filter__category_btn} >
-                {categories.map((category) => (
-              <div key={category.name} className={s.category}>
-                <CategoryButton
-                  category={category.name}
-                  isActive={activeCategory === category.name}
-                  onClick={() => handleCategoryClick(category.name)}
-                />
-                {activeCategory === category.name && (
-                  <Dropdown data={category.data} />
-                )}
-              </div>
-            ))}
+        <div className={s.filter}>
+          <div className={s.filter__title}>Искать по:</div>
+          <div className={s.filter__category_btn}>
+          <div className={s.category}>
+            <div onClick={() => dispatch(removeFilterAuthor())}
+                    className={`${s.circle_count} ${filterAuthor.length === 0 ? s.hidden : ''}`}
+                    > {filterAuthor.length} </div>               
+                        <CategoryButton
+                            category={'Исполнители'}
+                            isActive={activeCategory === 'Исполнители'}
+                            onClick={() => handleCategoryClick('Исполнители')}
+                        />
+                        {activeCategory === 'Исполнители' && (
+                            <Dropdown data={author}
+                            category={'Исполнители'}
+                             />
+                        )}  
+                    </div>
+                    <div className={s.category}>
+                    <div onClick={() => dispatch(removeFilterYears())}
+                    className={`${s.circle_count} ${filterYears.length === 0 ? s.hidden : ''}`}> {filterYears.length === 0 ? '0' : '1'} </div>
+                        <CategoryButton
+                            category={'Год выпуска'}
+                            isActive={activeCategory === 'Год выпуска'}
+                            onClick={() => handleCategoryClick('Год выпуска')}
+                        />
+                        {activeCategory === 'Год выпуска' && (
+                            <Dropdown data={years}
+                            category={'Год выпуска'}
+                           />
+                        )}
+                    </div>
+                    <div className={s.category}>
+                    <div 
+                    onClick={() => dispatch(removeFilterGenre())} 
+                    className={`${s.circle_count} ${filterGenre.length === 0 ? s.hidden : ''}`}> {filterGenre.length} </div>
+                        <CategoryButton
+                            category={'Жанры'}
+                            isActive={activeCategory === 'Жанры'}
+                            onClick={() => handleCategoryClick('Жанры')}
+                        />
+                        {activeCategory === 'Жанры' && (
+                            <Dropdown data={genre}
+                            category={'Жанры'} />
+                        )}                        
+                  </div>
           </div>
         </div>   
       </div>
