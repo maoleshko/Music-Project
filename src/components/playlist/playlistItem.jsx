@@ -68,7 +68,7 @@ const PlaylistItem = ({track}) => {
                                          <use xlinkHref={`${sprite}#icon-like`} fill={isFavourite ? 'blueviolet' : 'gray'} />
      
                                     </svg>
-                                    <span className={s.time_text}>{duration_in_seconds}</span>
+                                    <span className={s.time_text}>{(duration_in_seconds / 60).toFixed(2)}</span>
                             </div>
                     </div>
                 </div>
