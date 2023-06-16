@@ -1,9 +1,7 @@
 
 import React, { useState } from 'react';
 import s from '../../style/style.module.css';
-import Search from '../../components/search/search';
 import Filter from '../../components/filter/filter';
-// import CenterblockContent from '../../components/centerblock/centerblockContent';
 import Personal from '../../components/personal/personal';
 import SidebarBlock from '../../components/sidebar/sidebarBlock';
 import Menu from '../../components/burgerMenu/menu';
@@ -14,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFilterInp} from '../../store/slices/setFilters';
 import {useTrack} from "../../hooks/use-track"
 import sprite from '../../img/icon/sprite.svg'
-import Playlist from '../../components/playlist/playlist-mail';
+import PlaylistItem from '../../components/playlist/playlistItem';
 
 
 export const Main = () => {
@@ -62,17 +60,26 @@ export const Main = () => {
             <Menu active={menuActive} setActive={setMenuActive} header={""} />
           </nav>    
           <div className={s.centerblock}>
-            <Search
-            onInput={(event) => {
-              const target = event.target.value
-              dispatch(setFilterInp({
-                  serchInp: target,            
-              }));            
-          }}
-              type="search"
-              placeholder="Поиск"
-              name="search"
-              />
+
+          <div className={s.search}>
+                <svg className={s.svg}>
+                  <use xlinkHref={`${sprite}#icon-search`}></use>
+                </svg>
+                <input 
+                onInput={(event) => {
+                  const target = event.target.value
+                  dispatch(setFilterInp({
+                      serchInp: target, 
+                                
+                  })); 
+                  console.log(target)           
+              }}
+                className={s.text} 
+                type="search" 
+                placeholder="Поиск" 
+                name="search"/>
+              </div>
+
             <h2 className={s.h2}>Треки</h2> 
             <Filter 
             traks={TRACKS}
@@ -88,12 +95,14 @@ export const Main = () => {
             </svg>
           </div>
       </div>
-      <div className={s.playlist}>   
-      <Playlist 
-       key={TRACKS.id}
-       track={TRACKS}
-       loading={isLoad}
-       />
+      <div className={s.playlist}> 
+      {TRACKS.length === 0 ? '' : 
+                            TRACKS.map((track) => (
+                                <PlaylistItem key={track.id} track={track} loading={isLoad} titleTrack={track.name} titleSpan={track.titleSpan} author={track.author}
+                                    album={track.album}
+                                    time={track.duration_in_seconds}                                    
+                                />
+                            ))}
         </div>
     </div>
           </div>

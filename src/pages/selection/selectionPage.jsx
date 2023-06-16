@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Menu from '../../components/burgerMenu/menu';
 import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
-import Search from '../../components/search/search';
 import Personal from '../../components/personal/personal';
 import s from '../../style/style.module.css';
 import PlaylistColl from '../../components/playlist/playlist-collections';
@@ -30,7 +29,6 @@ export const SelectionPage = () => {
             <Menu active={menuActive} setActive={setMenuActive} header={""} />
           </nav>    
           <div className={s.centerblock}>
-            <Search/>
             <PlaylistColl/>
           </div>
           <div className={s.sidebar}>

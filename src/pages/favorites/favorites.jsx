@@ -3,7 +3,6 @@ import PlaylistFavor from '../../components/playlist/playlist-favor'
 import Menu from '../../components/burgerMenu/menu';
 import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
-import Search from '../../components/search/search';
 import Personal from '../../components/personal/personal';
 import s from '../../style/style.module.css';
 import { useGetAllTracksQuery } from '../../store/api/musicApi';
@@ -32,7 +31,6 @@ export const Favorites = () => {
             <Menu active={menuActive} setActive={setMenuActive} header={""} />
           </nav>    
           <div className={s.centerblock}>
-            <Search/>
             <h2 className={s.h2}>Избранное</h2> 
             
             <PlaylistFavor/>

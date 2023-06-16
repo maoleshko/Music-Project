@@ -38,6 +38,7 @@ let id = url.split('/').pop(); // получаем последний элеме
         author: item.author,
         album: item.album,
         time: (item.duration_in_seconds / 60).toFixed(2),
+        stared_user: item.stared_user,
       }}
     />
   ));
