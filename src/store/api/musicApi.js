@@ -11,7 +11,7 @@ export const musicApi = createApi({
       const token = getState().user.token
       console.log(token)
       if (token) {
-        headers.set('Authorization ', `Bearer ${token}`)
+        headers.set('Authorization', `Bearer ${token}`)
       }
       return headers
     },
