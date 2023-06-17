@@ -12,9 +12,6 @@ const userSlice = createSlice({
   initialState,
   
   reducers: {
-    setToken: (state, action) => {
-      state.token = action.payload
-    },
     userLogin: (state, action) => {
       state.email = action.payload.email;
       state.id = action.payload.id;
@@ -30,5 +27,6 @@ const userSlice = createSlice({
   }
 })
 
-export const { setToken ,userLogin, userLogout } = userSlice.actions
+export const { userLogin, userLogout } = userSlice.actions
 export default userSlice.reducer
+export const selectUserID = (state) => Number(state.user.id)

@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import CenterblockContent from '../../components/centerblock/centerblockContent'
+import PlaylistFavor from '../../components/playlist/playlist-favor'
 import Menu from '../../components/burgerMenu/menu';
 import Logo from '../../components/burgerMenu/logo';
 import BarPlayer from '../../components/barPlayer/barPlayer';
-import Search from '../../components/search/search';
 import Personal from '../../components/personal/personal';
 import s from '../../style/style.module.css';
-// import CenterblockContent from '../../components/centerblock/centerblockContent';
+import { useGetAllTracksQuery } from '../../store/api/musicApi';
+import {useTrack} from "../../hooks/use-track"
+
 
 export const Favorites = () => {
     const [menuActive, setMenuActive] = useState(false)
+    const [isLoad] = useState(true); 
+    const {id} = useTrack();
 
-    const id = 1; // Значение id может меняться динамически
-    
-fetch(`https://painassasin.online/catalog/selection/${id}`)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
+  const {data = [], isLoading} = useGetAllTracksQuery();
+  if (isLoading) return <h1>Loading...</h1>
+  
+  let TRACKS = data;
+
+  
     return (
         <div>
             <main className={s.main}>
@@ -28,17 +31,22 @@ fetch(`https://painassasin.online/catalog/selection/${id}`)
             <Menu active={menuActive} setActive={setMenuActive} header={""} />
           </nav>    
           <div className={s.centerblock}>
-            <Search/>
             <h2 className={s.h2}>Избранное</h2> 
             
-            <CenterblockContent/>
+            <PlaylistFavor/>
           </div>
           <div className={s.sidebar}>
             <Personal/>
             
           </div>
         </main>
-        <BarPlayer/>
+        <div>
+        {id ? 
+          <BarPlayer
+            loading={isLoad} 
+            tracks = {TRACKS}                 
+            /> : ''}    
+        </div>
         </div>
     )
 }

@@ -1,45 +1,46 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
+
 export const musicApi = createApi({
   
   reducerPath: "musicApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://painassasin.online/",
+    tagTypes: ['Tracks'],
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().user.token
+    
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`)
+      }
+      return headers
+    },    
   }),
   endpoints: (builder) => ({
     getAllTracks: builder.query({
-      query: () => 'catalog/track/all'      
-    }), 
-
+      query: () => 'catalog/track/all',
+      providesTags: ['Tracks'],      
+    }),
     getSelectMusic: builder.query({
-      // вместо 2 доблжен быть динамический id
-      query: () => 'catalog/selection/2'      
+      query: (id) => `catalog/selection/${id}`      
     }),
-
-    postReg: builder.mutation({
-      query: (body) => ({
-        url: 'user/signup/',
+  
+    setLike: builder.mutation({
+      query: (id) => ({
+        url: `/catalog/track/${id}/favorite/`,
         method: 'POST',
-        body,
-      })      
+      }),
+      invalidatesTags: ['Tracks'],
     }),
-    postLogin: builder.mutation({
-      query: (body) => ({
-        url: 'user/login/',
-        method: 'POST',
-        body,
-      })      
+    setUnlike: builder.mutation({
+      query: (id) => ({
+        url: `/catalog/track/${id}/favorite/`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Tracks'],
     }),
-
-    postToken: builder.mutation({
-      query: (body) => ({
-        url: 'user/token/',
-        method: 'POST',
-        body,
-      })      
-    }),
-
   }),
-});
+})
 
-export const { useGetAllTracksQuery, useGetSelectMusicQuery, usePostRegMutation, usePostLoginMutation, usePostTokenMutation } = musicApi;
+
+export const { useGetAllTracksQuery, useGetSelectMusicQuery, useSetLikeMutation, useSetUnlikeMutation } = musicApi;
