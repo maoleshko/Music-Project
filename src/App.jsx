@@ -21,13 +21,11 @@ function App() {
             .then((data) => {
               console.log(data)
               dispatch(userLogin({
-                
                 token: data
             }));
             })           
         }
       }
-
       useEffect(() => {
         setInterval(() => {
             handleTokenRefresh ()

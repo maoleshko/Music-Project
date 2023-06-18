@@ -14,7 +14,6 @@ import {useTrack} from "../../hooks/use-track"
 import sprite from '../../img/icon/sprite.svg'
 import PlaylistItem from '../../components/playlist/playlistItem';
 
-
 export const Main = () => {
   const [menuActive, setMenuActive] = useState(false)
   const [isLoad] = useState(true); 
@@ -25,7 +24,8 @@ export const Main = () => {
 
   const filterAuthor = useSelector(state => state.setFilters.author);
   const filterGenre = useSelector(state => state.setFilters.genre);
-  const filterYears = useSelector(state => state.setFilters.years)
+  const filterYears = useSelector(state => state.setFilters.years);
+  const filterSerchInp = useSelector(state => state.setFilters.serchInp);
 
   if (isLoading) return <h1>Loading...</h1>
   
@@ -48,6 +48,10 @@ export const Main = () => {
 
         TRACKS = TRACKS.filter(({ genre }) => filterGenre.includes(genre))
     }
+    if (filterSerchInp.length > 0) {
+
+      TRACKS = TRACKS.filter(({ name }) => name.toLowerCase().includes(filterSerchInp.toLowerCase()))
+  }
         
     return (  
       <div className={s.container}>
