@@ -123,7 +123,7 @@ export const BarPlayer = (props) => {
                                 </div>
                                 <div className={s.player__btn_play}>
                                 <svg className={s.player__btn_play_svg} alt="play" onClick={state.playing ? controls.pause: controls.play}> 
-                                        <use xlinkHref={`${sprite}#icon-play`}></use>
+                                        <use xlinkHref={state.playing ? `${sprite}#icon-pause`: `${sprite}#icon-play`}></use>
                                     </svg>
                                 </div>
                                 <div className={s.player__btn_next}>
